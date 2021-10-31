@@ -1,1 +1,31 @@
 @import "../../global.scss";
+.header {
+  background-color: $first;
+  height: 11vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: $color1;
+  letter-spacing: 0.2rem;
+  img {
+    width: 11vw;
+  }
+  .headerBtn {
+    background-color: $second;
+    min-width: 140px;
+    padding: 0.4rem;
+    border-radius: 0.2rem;
+    text-align: center;
+  }
+  .headerMiddle {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 50vw;
+    gap: 1rem;
+  }
+}

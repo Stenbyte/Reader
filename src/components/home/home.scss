@@ -1,0 +1,52 @@
+@import "../../global.scss";
+.container {
+  background-color: $main;
+  min-height: $height;
+
+  .home {
+    padding: 1.7rem 1rem;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 18rem 9rem 18rem;
+    gap: 0.8rem;
+    grid-template-areas:
+      "read user creator"
+      ". pencil ."
+      "book news misc";
+    > * {
+      border-radius: 0.5rem;
+    }
+    .read {
+      grid-area: read;
+      background-color: $fourth;
+    }
+    .user {
+      grid-area: user;
+      background-color: $fourth;
+    }
+    .creator {
+      grid-area: creator;
+      background-color: $fourth;
+    }
+    .pencil {
+      grid-area: pencil;
+      justify-self: center;
+      align-self: center;
+      width: 27vw;
+      //   background-color: green;
+    }
+    .book {
+      grid-area: book;
+      background-color: $fourth;
+    }
+    .news {
+      grid-area: news;
+      background-color: $fourth;
+    }
+    .misc {
+      grid-area: misc;
+      background-color: $fourth;
+    }
+  }
+}
