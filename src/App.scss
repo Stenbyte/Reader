@@ -1,0 +1,10 @@
+@import "./global.scss";
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: $font;
+  height: 100vh;
+}
