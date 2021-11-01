@@ -5,6 +5,7 @@ import Book from "../book/Book";
 import Creator from "../creator/Creator";
 import Misc from "../misc/Misc";
 import Profile from "../profile/Profile";
+import News from "../news/News";
 
 export default function Home() {
   return (
@@ -37,7 +38,10 @@ export default function Home() {
           <Book title="Find a book" />
           <Book title="Bookmarks" />
         </div>
-        <div className={styles.news}>News</div>
+        <div className={styles.news}>
+          News
+          <News />
+        </div>
         <div className={styles.misc}>
           <div className={styles.misc1}>Misc</div>
           <Misc title="Dictionary" />
