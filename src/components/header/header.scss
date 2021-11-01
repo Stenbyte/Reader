@@ -11,6 +11,10 @@
   font-weight: 300;
   color: $color1;
   letter-spacing: 0.2rem;
+  transition: all 1s ease;
+  &.head2 {
+    background-color: $firstgreen;
+  }
   img {
     width: 11vw;
   }
@@ -20,6 +24,11 @@
     padding: 0.4rem;
     border-radius: 0.2rem;
     text-align: center;
+    cursor: default;
+    transition: all 1s ease;
+    &.btn2 {
+      background-color: $secondgreen;
+    }
   }
   .headerMiddle {
     display: flex;

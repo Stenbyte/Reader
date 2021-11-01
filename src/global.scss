@@ -8,6 +8,13 @@ $color: #252422;
 $color1: #fffcff;
 $font: "Rokkitt", serif;
 $height: calc(100vh - 13vh);
+//green section
+$maingreen: #036666;
+$firstgreen: #14746f;
+$secondgreen: #248277;
+$thirdgreen: #99e2b4;
+$fourthgreen: #78c6a3;
+
 @mixin large {
   @media (min-width: 1441px) {
     @content;

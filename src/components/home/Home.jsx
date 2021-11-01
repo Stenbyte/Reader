@@ -10,7 +10,7 @@ import News from "../news/News";
 export default function Home() {
   return (
     <div className={styles.container}>
-      <div className={styles.home}>
+      <div className={`${styles.home} ${styles.hom1}`}>
         <div className={styles.read}>
           <div className={styles.more}>
             <h4>Readers you may know</h4>

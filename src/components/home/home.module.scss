@@ -18,6 +18,9 @@
     > * {
       border-radius: 0.5rem;
     }
+    &.hom1 {
+      color: green;
+    }
     .read {
       grid-area: read;
       background-color: $third;
