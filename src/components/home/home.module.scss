@@ -2,7 +2,10 @@
 .container {
   background-color: $main;
   min-height: $height;
-
+  transition: all 1s ease;
+  &.hom1 {
+    background-color: $maingreen;
+  }
   .home {
     padding: 1.7rem 1rem;
     text-align: center;
@@ -18,9 +21,7 @@
     > * {
       border-radius: 0.5rem;
     }
-    &.hom1 {
-      color: green;
-    }
+
     .read {
       grid-area: read;
       background-color: $third;

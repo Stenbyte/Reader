@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./home.module.scss";
 import Reader from "../reader/Reader";
 import Book from "../book/Book";
@@ -7,10 +7,12 @@ import Misc from "../misc/Misc";
 import Profile from "../profile/Profile";
 import News from "../news/News";
 
-export default function Home() {
+export default function Home({ theme }) {
   return (
-    <div className={styles.container}>
-      <div className={`${styles.home} ${styles.hom1}`}>
+    <div
+      className={`${styles.container} ${theme === "" ? "" : `${styles.hom1}`}`}
+    >
+      <div className={styles.home}>
         <div className={styles.read}>
           <div className={styles.more}>
             <h4>Readers you may know</h4>

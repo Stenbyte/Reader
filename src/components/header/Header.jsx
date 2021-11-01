@@ -38,7 +38,7 @@ export default function Header() {
           THEME
         </div>
       </div>
-      <Home />
+      <Home theme={theme} />
     </>
   );
 }
