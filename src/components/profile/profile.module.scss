@@ -2,13 +2,17 @@
 .container {
   display: flex;
   flex-direction: column;
-  //   align-items: center;
   padding: 1rem;
+  gap: 2rem;
+  @include large {
+    gap: 1rem;
+  }
   .userTop {
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 10vh;
+    padding: 1rem;
     .userLeft {
       display: flex;
       align-items: center;
@@ -48,7 +52,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 2rem;
     .middleContainer {
       background-color: $fourth;
       width: 20vw;
@@ -63,6 +66,7 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    gap: 1rem;
     .bottomContainer {
       background-color: $fourth;
       width: 20vw;
