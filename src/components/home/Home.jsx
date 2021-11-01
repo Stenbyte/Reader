@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./home.module.scss";
 import Reader from "../reader/Reader";
+import Book from "../book/Book";
 
 export default function Home() {
   return (
@@ -20,7 +21,12 @@ export default function Home() {
         <div className={styles.user}>User</div>
         <div className={styles.creator}>Creator</div>
         <img src="images/pencil.svg" alt="" className={styles.pencil} />
-        <div className={styles.book}>Book</div>
+        <div className={styles.book}>
+          <div className={styles.bookTop}>Books</div>
+          <Book title="New Realeses" />
+          <Book title="Find a book" />
+          <Book title="Bookmarks" />
+        </div>
         <div className={styles.news}>News</div>
         <div className={styles.misc}>Misc</div>
       </div>

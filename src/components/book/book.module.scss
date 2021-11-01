@@ -1,0 +1,15 @@
+@import "../../global.scss";
+.container {
+  background-color: $fourth;
+  padding: 0.5rem 1rem;
+  margin: 1rem;
+  border-radius: 3px;
+  text-align: left;
+  h4 {
+    font-weight: 300;
+    font-size: 1.4rem;
+    color: $color;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+}
