@@ -1,17 +1,28 @@
 import React from "react";
-import "./home.scss";
+import styles from "./home.module.scss";
+import Reader from "../reader/Reader";
 
 export default function Home() {
   return (
-    <div className="container">
-      <div className="home">
-        <div className="read">Reader</div>
-        <div className="user">User</div>
-        <div className="creator">Creator</div>
-        <img src="images/pencil.svg" alt="" className="pencil" />
-        <div className="book">Book</div>
-        <div className="news">News</div>
-        <div className="misc">Misc</div>
+    <div className={styles.container}>
+      <div className={styles.home}>
+        <div className={styles.read}>
+          <div className={styles.more}>
+            <h4>Readers you may know</h4>
+            <p>View all</p>
+          </div>
+          <Reader />
+          <Reader />
+          <Reader />
+          <Reader />
+          <Reader />
+        </div>
+        <div className={styles.user}>User</div>
+        <div className={styles.creator}>Creator</div>
+        <img src="images/pencil.svg" alt="" className={styles.pencil} />
+        <div className={styles.book}>Book</div>
+        <div className={styles.news}>News</div>
+        <div className={styles.misc}>Misc</div>
       </div>
     </div>
   );

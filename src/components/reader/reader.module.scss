@@ -1,0 +1,44 @@
+@import "../../global.scss";
+.container {
+  background-color: $fourth;
+  padding: 0.5rem 1rem;
+  margin: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 3px;
+  .user {
+    width: 3rem;
+    margin-right: -2.5rem;
+  }
+  .userInfo {
+    h5 {
+      font-weight: 400;
+      font-size: 1rem;
+      color: $color;
+    }
+  }
+  .right {
+    display: flex;
+    width: 6vw;
+    gap: 10px;
+    .profile {
+      transition: all 1s ease;
+      border: 1px solid $second;
+      padding: 0.3rem;
+      border-radius: 5px;
+      font-weight: 300;
+      cursor: default;
+      &:hover {
+        background-color: $second;
+        color: $color1;
+      }
+    }
+    .rank {
+      border: 1px solid $second;
+      padding: 0.3rem;
+      border-radius: 5px;
+      cursor: default;
+    }
+  }
+}
