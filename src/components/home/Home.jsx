@@ -4,6 +4,7 @@ import Reader from "../reader/Reader";
 import Book from "../book/Book";
 import Creator from "../creator/Creator";
 import Misc from "../misc/Misc";
+import Profile from "../profile/Profile";
 
 export default function Home() {
   return (
@@ -20,7 +21,9 @@ export default function Home() {
           <Reader />
           <Reader />
         </div>
-        <div className={styles.user}>User</div>
+        <div className={styles.user}>
+          <Profile />
+        </div>
         <div className={styles.creator}>
           <div className={styles.creator1}>From the Creator</div>
           <Creator title="Music" />
