@@ -4,8 +4,6 @@
   flex-direction: column;
   align-items: center;
   padding: 1rem;
-
-  // gap: 2rem;
   @include large {
     gap: 1rem;
   }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styles from "./home.module.scss";
 import Reader from "../reader/Reader";
 import Book from "../book/Book";
