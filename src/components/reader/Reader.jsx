@@ -1,17 +1,17 @@
 import React from "react";
 import styles from "./reader.module.scss";
-import Logo from "../../img/logo.png";
-export default function Reader() {
+
+export default function Reader({ reader }) {
   return (
     <div className={styles.container}>
-      <img src={Logo} alt="" className={styles.user} />
+      <img src={reader.proImg} alt="" className={styles.user} />
 
       <div className={styles.userInfo}>
-        <h5>UserName</h5>
+        <h5>{reader.name}</h5>
       </div>
       <div className={styles.right}>
         <div className={styles.profile}>profile</div>
-        <div className={styles.rank}>5</div>
+        <div className={styles.rank}>{reader.rank}</div>
       </div>
     </div>
   );

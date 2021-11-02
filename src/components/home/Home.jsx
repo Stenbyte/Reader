@@ -6,6 +6,7 @@ import Creator from "../creator/Creator";
 import Misc from "../misc/Misc";
 import Profile from "../profile/Profile";
 import News from "../news/News";
+import { Readers } from "../data";
 
 export default function Home({ theme }) {
   return (
@@ -18,11 +19,9 @@ export default function Home({ theme }) {
             <h4>Readers you may know</h4>
             <p>View all</p>
           </div>
-          <Reader />
-          <Reader />
-          <Reader />
-          <Reader />
-          <Reader />
+          {Readers.map((reader) => (
+            <Reader reader={reader} key={reader.id} />
+          ))}
         </div>
         <div className={styles.user}>
           <Profile />

@@ -9,14 +9,17 @@
   border-radius: 3px;
   .user {
     width: 3rem;
-    margin-right: -2.5rem;
   }
   .userInfo {
     h5 {
-      font-weight: 400;
+      font-weight: 300;
+      width: 7rem;
       font-size: 1.3rem;
       color: $color;
       cursor: pointer;
+      @include large {
+        width: 10rem;
+      }
     }
   }
   .right {
