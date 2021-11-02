@@ -1,16 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styles from "./profile.module.scss";
 import logo from "../../img/st.png";
 
 export default function Profile() {
-  const [color, setColor] = useState("");
-  useEffect(() => {
-    const col = localStorage.getItem("theme");
-    if (col) {
-      setColor(col);
-    }
-  }, []);
-  console.log(color);
   return (
     <div className={styles.container}>
       <div className={styles.userTop}>
