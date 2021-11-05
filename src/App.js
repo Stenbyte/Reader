@@ -10,6 +10,10 @@ import NewsSec from "./components/sections/newsSection/NewsSec";
 import MisSec from "./components/sections/miscSection/MisSec";
 
 function App() {
+  const handleTheme1 = (theme) => {
+    setTheme(theme);
+    localStorage.setItem("theme", theme);
+  };
   const [theme, setTheme] = useState("");
   useEffect(() => {
     const current = localStorage.getItem("theme");
@@ -20,7 +24,10 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Header />}>
+        <Route
+          path="/"
+          element={<Header handleTheme1={handleTheme1} theme1={theme} />}
+        >
           <Route index element={<Home theme={theme} />} />
           <Route path="books" element={<BookSection theme={theme} />} />
           <Route path="profile" element={<ProfileSec theme={theme} />} />
