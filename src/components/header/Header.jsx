@@ -1,43 +1,33 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./header.scss";
 import { NavLink, Outlet } from "react-router-dom";
 
-export default function Header() {
-  const [theme, setTheme] = useState("");
-
+export default function Header({ handleTheme1, theme1 }) {
   const handleTheme = (theme) => {
-    setTheme(theme);
-    localStorage.setItem("theme", theme);
+    handleTheme1(theme);
   };
-
-  useEffect(() => {
-    const current = localStorage.getItem("theme");
-    if (current) {
-      setTheme(current);
-    }
-  }, []);
 
   return (
     <>
-      <div className={`header ${theme === "green" ? "head2" : ""}`}>
+      <div className={`header ${theme1 === "green" ? "head2" : ""}`}>
         <NavLink to="/">
           <img src="images/reader.svg" alt="" />
         </NavLink>
         <div className="headerMiddle">
           <NavLink to="profile">
-            <div className={`headerBtn ${theme && "btn2"}`}>PROFILE</div>
+            <div className={`headerBtn ${theme1 && "btn2"}`}>PROFILE</div>
           </NavLink>
           <NavLink to="/friends">
-            <div className={`headerBtn ${theme && "btn2"}`}>FRIENDS</div>
+            <div className={`headerBtn ${theme1 && "btn2"}`}>FRIENDS</div>
           </NavLink>
           <NavLink to="/books">
-            <div className={`headerBtn ${theme && "btn2"}`}>BOOKS</div>
+            <div className={`headerBtn ${theme1 && "btn2"}`}>BOOKS</div>
           </NavLink>
           <NavLink to="/news">
-            <div className={`headerBtn ${theme && "btn2"}`}>NEWS</div>
+            <div className={`headerBtn ${theme1 && "btn2"}`}>NEWS</div>
           </NavLink>
           <NavLink to="/misc">
-            <div className={`headerBtn ${theme && "btn2"}`}>MISC</div>
+            <div className={`headerBtn ${theme1 && "btn2"}`}>MISC</div>
           </NavLink>
         </div>
         <div className={`headerBtn`}>
