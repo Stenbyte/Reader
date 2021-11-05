@@ -15,6 +15,13 @@
   &.head2 {
     background-color: $firstgreen;
   }
+  a {
+    color: $color1;
+    text-decoration: none;
+    &:focus {
+      text-decoration: underline;
+    }
+  }
   img {
     width: 11vw;
   }

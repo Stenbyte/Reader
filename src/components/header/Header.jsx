@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./header.scss";
-import Home from "../home/Home";
+import { NavLink, Outlet } from "react-router-dom";
 
 export default function Header() {
   const [theme, setTheme] = useState("");
@@ -20,13 +20,25 @@ export default function Header() {
   return (
     <>
       <div className={`header ${theme === "green" ? "head2" : ""}`}>
-        <img src="images/reader.svg" alt="" />
+        <NavLink to="/">
+          <img src="images/reader.svg" alt="" />
+        </NavLink>
         <div className="headerMiddle">
-          <div className={`headerBtn ${theme && "btn2"}`}>PROFILE</div>
-          <div className={`headerBtn ${theme && "btn2"}`}>FRIENDS</div>
-          <div className={`headerBtn ${theme && "btn2"}`}>BOOKS</div>
-          <div className={`headerBtn ${theme && "btn2"}`}>NEWS</div>
-          <div className={`headerBtn ${theme && "btn2"}`}>MISC</div>
+          <NavLink to="profile">
+            <div className={`headerBtn ${theme && "btn2"}`}>PROFILE</div>
+          </NavLink>
+          <NavLink to="/friends">
+            <div className={`headerBtn ${theme && "btn2"}`}>FRIENDS</div>
+          </NavLink>
+          <NavLink to="/books">
+            <div className={`headerBtn ${theme && "btn2"}`}>BOOKS</div>
+          </NavLink>
+          <NavLink to="/news">
+            <div className={`headerBtn ${theme && "btn2"}`}>NEWS</div>
+          </NavLink>
+          <NavLink to="/misc">
+            <div className={`headerBtn ${theme && "btn2"}`}>MISC</div>
+          </NavLink>
         </div>
         <div className={`headerBtn`}>
           <p id="" onClick={() => handleTheme("")}>
@@ -41,7 +53,7 @@ export default function Header() {
           </p>
         </div>
       </div>
-      <Home theme={theme} />
+      <Outlet />
     </>
   );
 }

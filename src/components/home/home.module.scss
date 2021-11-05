@@ -65,6 +65,9 @@
         display: flex;
         align-items: center;
       }
+      a {
+        color: $color;
+      }
     }
     .news {
       grid-area: news;
