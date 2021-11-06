@@ -1,0 +1,21 @@
+@import "../../../../global.scss";
+.new {
+  // flex: 1;
+  background-color: $third;
+  padding: 0.5rem;
+  height: 50vh;
+  border-radius: 3px;
+  overflow: auto;
+
+  .title {
+    font-weight: 300;
+    text-decoration: underline;
+  }
+  .list {
+    background-color: $fourth;
+    width: 20vw;
+    height: 10vh;
+    padding: 0.4rem;
+    margin: 0.4rem;
+  }
+}

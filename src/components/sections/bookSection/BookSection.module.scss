@@ -3,6 +3,12 @@
   background-color: $main;
   min-height: $height;
   transition: all 1s ease;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  // padding-top: 3rem;
+  padding: 1.7rem 1rem;
   &.hom1 {
     background-color: $maingreen;
   }

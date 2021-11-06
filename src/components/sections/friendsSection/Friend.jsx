@@ -6,7 +6,7 @@ export default function Friend({ theme }) {
     <div
       className={`${styles.container} ${theme === "" ? "" : `${styles.hom1}`}`}
     >
-      Friend
+      Friends
     </div>
   );
 }
