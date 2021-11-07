@@ -13,7 +13,7 @@ export default function NewRelease() {
         `https://www.googleapis.com/books/v1/volumes?q=${category}+subject&filter=ebooks&orderBy=newest&maxResults=5&`
       )
       .then((res) => {
-        console.log(res.data.items);
+        // console.log(res.data.items);
         setCards(res.data.items);
       })
       .catch((err) => {
@@ -30,9 +30,7 @@ export default function NewRelease() {
         <div onClick={() => setCategory("Non-fiction")}>Non-fiction</div>
       </div>
       {cards.map((card) => (
-        <>
-          <ReleaseCard card={card} />
-        </>
+        <ReleaseCard card={card} key={card.id} />
       ))}
     </div>
   );

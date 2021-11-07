@@ -1,5 +1,45 @@
 @import "../../../../global.scss";
 .find {
-  flex: 1;
-  background-color: rgb(47, 36, 58);
+  flex: 2;
+  background-color: $third;
+  margin: 0 1rem;
+  border-radius: 3px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .search {
+    padding: 1rem;
+    cursor: default;
+    input {
+      width: 20rem;
+      padding: 0.5rem;
+      border-radius: 3px;
+      border: none;
+      font-weight: 300;
+
+      &:focus {
+        outline: none;
+      }
+    }
+    span {
+      background-color: $fourth;
+      padding: 0.5rem;
+      border-radius: 3px;
+      margin: 0.2rem;
+      transition: all 1s ease;
+      &:hover {
+        background-color: $second;
+        color: $color1;
+      }
+    }
+  }
+  .result {
+    display: flex;
+    flex-wrap: wrap;
+    max-height: 80vh;
+    overflow: auto;
+    // align-items: center;
+    justify-content: center;
+  }
 }
