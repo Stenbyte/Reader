@@ -16,6 +16,7 @@
   .category {
     display: flex;
     align-content: center;
+    z-index: 10;
     justify-content: space-evenly;
     padding: 0.3rem;
     position: sticky;
