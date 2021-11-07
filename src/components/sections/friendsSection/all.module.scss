@@ -1,0 +1,62 @@
+@import "../../../global.scss";
+.card {
+  background-color: $fourth;
+  //   padding: 1rem;
+  margin: 0.5rem;
+  min-height: 40vh;
+  width: 20vw;
+  border-radius: 3px;
+  position: relative;
+  cursor: default;
+  font-size: 1.2rem;
+  .cardTop {
+    min-height: 20vh;
+    display: flex;
+    flex-direction: column;
+    .backImg {
+      width: 100%;
+      object-fit: contain;
+      border-radius: 3px;
+    }
+    .front {
+      position: absolute;
+      top: 4rem;
+      object-fit: cover;
+      width: 7rem;
+      border-radius: 0px 3px 10px 0px;
+      border: 1px solid $color1;
+      border-style: solid solid solid none;
+      cursor: pointer;
+    }
+    h4 {
+      font-weight: 500;
+      margin-top: 1.5rem;
+      padding: 0.3rem;
+    }
+    .rank {
+      background-color: $second;
+      max-width: 5rem;
+      padding: 0.3rem;
+      margin: 0 0.3rem;
+      color: $color1;
+      border-radius: 3px;
+    }
+    p {
+      font-weight: 300;
+      padding: 0.3rem;
+    }
+  }
+  .cardBottom {
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    h4 {
+      font-weight: 500;
+    }
+    p {
+      font-weight: 300;
+      span {
+        font-weight: 400;
+      }
+    }
+  }
+}

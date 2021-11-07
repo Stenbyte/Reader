@@ -7,7 +7,7 @@ import Misc from "../misc/Misc";
 import Profile from "../profile/Profile";
 import News from "../news/News";
 import { Readers } from "../data";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 export default function Home({ theme }) {
   return (
@@ -18,7 +18,9 @@ export default function Home({ theme }) {
         <div className={styles.read}>
           <div className={styles.more}>
             <h4>Readers you may know</h4>
-            <p>View all</p>
+            <Link to="/friends">
+              <p>View all</p>
+            </Link>
           </div>
           {Readers.map((reader) => (
             <Reader reader={reader} key={reader.id} />

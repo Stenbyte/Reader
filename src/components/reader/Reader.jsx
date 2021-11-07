@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./reader.module.scss";
+import { Link, Outlet } from "react-router-dom";
 
 export default function Reader({ reader }) {
   return (
@@ -10,7 +11,9 @@ export default function Reader({ reader }) {
         <h5>{reader.name}</h5>
       </div>
       <div className={styles.right}>
-        <div className={styles.profile}>profile</div>
+        <Link to={`/friends/${reader.id}`}>
+          <div className={styles.profile}>profile</div>
+        </Link>
         <div className={styles.rank}>{reader.rank}</div>
       </div>
     </div>
