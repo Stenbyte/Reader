@@ -33,9 +33,8 @@ function App() {
           <Route index element={<Home theme={theme} />} />
           <Route path="books" element={<BookSection theme={theme} />} />
           <Route path="profile" element={<ProfileSec theme={theme} />} />
-          <Route path="friends" element={<Friends theme={theme} />}>
-            <Route path=":friendId" element={<Friend />} />
-          </Route>
+          <Route path="friends" element={<Friends theme={theme} />} />
+          <Route path="friends/:friendId" element={<Friend theme={theme} />} />
           <Route path="news" element={<NewsSec theme={theme} />} />
           <Route path="misc" element={<MisSec theme={theme} />} />
           <Route

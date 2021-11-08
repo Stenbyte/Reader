@@ -8,7 +8,6 @@ import Profile from "../profile/Profile";
 import News from "../news/News";
 import { Readers } from "../data";
 import { NavLink, Link } from "react-router-dom";
-
 export default function Home({ theme }) {
   return (
     <div
@@ -36,6 +35,7 @@ export default function Home({ theme }) {
           <Creator title="Quotes" />
         </div>
         <img src="images/pencil.svg" alt="" className={styles.pencil} />
+
         <div className={styles.book}>
           <NavLink to="/books">
             <div className={styles.bookTop}>Books</div>
