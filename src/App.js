@@ -6,7 +6,7 @@ import BookSection from "./components/sections/bookSection/BookSection";
 import Home from "./components/home/Home";
 import ProfileSec from "./components/sections/profileSection/ProfileSec";
 import NewsSec from "./components/sections/newsSection/NewsSec";
-import MisSec from "./components/sections/miscSection/MisSec";
+import Bookshelf from "./components/sections/shelfSection/Bookshelf";
 import Friends from "./components/sections/friendsSection/Friends";
 import Friend from "./components/sections/friendsSection/Friend";
 
@@ -35,7 +35,7 @@ function App() {
           <Route path="friends" element={<Friends theme={theme} />} />
           <Route path="friends/:friendId" element={<Friend theme={theme} />} />
           <Route path="news" element={<NewsSec theme={theme} />} />
-          <Route path="misc" element={<MisSec theme={theme} />} />
+          <Route path="misc" element={<Bookshelf theme={theme} />} />
           <Route
             path="*"
             element={
