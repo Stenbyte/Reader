@@ -31,10 +31,19 @@
         align-items: center;
         justify-content: space-between;
         padding: 0.5rem 1rem 0 1rem;
-        p {
+        transition: all 1s ease-in-out;
+        a {
           color: $color;
           text-decoration: underline;
           cursor: default;
+          transition: all 1s ease-in-out;
+        }
+        &:hover {
+          background-color: $second;
+          color: $color1;
+          a {
+            color: $color1;
+          }
         }
       }
     }
@@ -45,10 +54,16 @@
     .creator {
       grid-area: creator;
       background-color: $third;
+      overflow: auto;
       .creator1 {
         padding: 0.5rem 1rem 0 1rem;
         display: flex;
         align-items: center;
+        transition: all 1s ease-in-out;
+        &:hover {
+          background-color: $second;
+          color: $color1;
+        }
       }
     }
     .pencil {
@@ -60,13 +75,24 @@
     .book {
       grid-area: book;
       background-color: $third;
-      .bookTop {
-        padding: 0.5rem 1rem 0 1rem;
-        display: flex;
-        align-items: center;
-      }
+      overflow: auto;
       a {
+        text-decoration: underline;
         color: $color;
+        cursor: default;
+        .bookTop {
+          padding: 0.5rem 1rem 0 1rem;
+          display: flex;
+          align-items: center;
+          transition: all 1s ease-in-out;
+          &:hover {
+            background-color: $second;
+            color: $color1;
+          }
+        }
+        &:hover {
+          color: $color1;
+        }
       }
     }
     .news {
@@ -76,10 +102,16 @@
     .misc {
       grid-area: misc;
       background-color: $third;
+      overflow: auto;
       .misc1 {
         padding: 0.5rem 1rem 0 1rem;
         display: flex;
         align-items: center;
+        transition: all 1s ease-in-out;
+        &:hover {
+          background-color: $second;
+          color: $color1;
+        }
       }
     }
   }

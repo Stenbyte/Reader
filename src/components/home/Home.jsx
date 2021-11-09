@@ -7,7 +7,7 @@ import Misc from "../misc/Misc";
 import Profile from "../profile/Profile";
 import News from "../news/News";
 import { Readers } from "../data";
-import { NavLink, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 export default function Home({ theme }) {
   return (
     <div
@@ -29,19 +29,16 @@ export default function Home({ theme }) {
           <Profile />
         </div>
         <div className={styles.creator}>
-          <div className={styles.creator1}>From the Creator</div>
-          <Creator title="Music" />
-          <Creator title="Book Suggestion" />
-          <Creator title="Quotes" />
+          <div className={styles.creator1}>Bookshelf</div>
+          <Creator title="My Music" />
+          <Creator title="Dictionary" />
         </div>
         <img src="images/pencil.svg" alt="" className={styles.pencil} />
 
         <div className={styles.book}>
-          <NavLink to="/books">
+          <Link to="/books">
             <div className={styles.bookTop}>Books</div>
-          </NavLink>
-          <Book title="New Realeses" />
-          <Book title="Find a book" />
+          </Link>
           <Book title="Bookmarks" />
         </div>
         <div className={styles.news}>
@@ -49,10 +46,11 @@ export default function Home({ theme }) {
           <News />
         </div>
         <div className={styles.misc}>
-          <div className={styles.misc1}>Misc</div>
-          <Misc title="Dictionary" />
+          <div className={styles.misc1}>From the Creator</div>
+          <Misc title="Book Suggestion" />
           <Misc title="Shop" />
-          <Misc title="My Music" />
+          <Misc title="Music" />
+          <Misc title="Quotes" />
         </div>
       </div>
     </div>

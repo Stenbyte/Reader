@@ -6,7 +6,9 @@ export default function NewsSec({ theme }) {
     <div
       className={`${styles.container} ${theme === "" ? "" : `${styles.hom1}`}`}
     >
-      News
+      <div className={styles.card}>
+        <img src="https://source.unsplash.com/1600x900/?nature,forest" alt="" />
+      </div>
     </div>
   );
 }
