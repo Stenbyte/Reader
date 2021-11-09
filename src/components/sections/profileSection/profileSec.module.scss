@@ -3,7 +3,71 @@
   background-color: $main;
   min-height: $height;
   transition: all 1s ease;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   &.hom1 {
     background-color: $maingreen;
+  }
+  .card {
+    background-color: $fourth;
+
+    margin: 0.5rem;
+
+    width: 60vw;
+    border-radius: 3px;
+    position: relative;
+    cursor: default;
+    font-size: 1.2rem;
+    .cardTop {
+      display: flex;
+      flex-direction: column;
+      .backImg {
+        width: 100%;
+        object-fit: contain;
+        border-radius: 3px;
+      }
+      .front {
+        position: absolute;
+        top: 15rem;
+        object-fit: cover;
+        width: 14rem;
+        border-radius: 0px 3px 10px 0px;
+        border: 1px solid $fourth;
+        border-style: solid solid solid none;
+        cursor: pointer;
+      }
+      h4 {
+        font-weight: 500;
+        margin-top: 1.5rem;
+        padding: 0.3rem;
+      }
+      .rank {
+        background-color: $second;
+        max-width: 5rem;
+        padding: 0.3rem;
+        margin: 0 0.3rem;
+        color: $color1;
+        border-radius: 3px;
+      }
+      p {
+        font-weight: 300;
+        padding: 0.3rem;
+      }
+    }
+    .cardBottom {
+      padding: 0.5rem;
+      font-size: 1.2rem;
+      h4 {
+        font-weight: 500;
+      }
+      p {
+        font-weight: 300;
+        span {
+          font-weight: 400;
+        }
+      }
+    }
   }
 }

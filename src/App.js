@@ -9,7 +9,6 @@ import NewsSec from "./components/sections/newsSection/NewsSec";
 import MisSec from "./components/sections/miscSection/MisSec";
 import Friends from "./components/sections/friendsSection/Friends";
 import Friend from "./components/sections/friendsSection/Friend";
-import AllFriends from "./components/sections/friendsSection/AllFriends";
 
 function App() {
   const handleTheme1 = (theme) => {

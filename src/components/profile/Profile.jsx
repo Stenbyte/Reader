@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./profile.module.scss";
 import logo from "../../img/st.png";
+import { Link } from "react-router-dom";
 
 export default function Profile() {
   return (
@@ -8,7 +9,9 @@ export default function Profile() {
       <div className={styles.userTop}>
         <div className={styles.userLeft}>
           <img src={logo} alt="" />
-          <h4>Sten Scheifel</h4>
+          <Link to="/profile">
+            <h4>Sten Scheifel</h4>
+          </Link>
           <p>Rank</p>
         </div>
         <div className={styles.userRight}>
