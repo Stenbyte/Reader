@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styles from "./find.module.scss";
 import axios from "axios";
 import FindCard from "./FindCard";
@@ -9,7 +9,7 @@ export default function FindBook() {
   const handleBook = (e) => {
     setBook(e.target.value);
   };
-  console.log(book);
+
   const submitBook = (e) => {
     e.preventDefault();
     axios
@@ -24,7 +24,12 @@ export default function FindBook() {
         console.log(err);
       });
   };
-  console.log(cards);
+
+  const Search = (e) => {
+    if (e.key === "Enter") {
+      submitBook(e);
+    }
+  };
   return (
     <div className={styles.find}>
       <div className={styles.search}>
@@ -32,6 +37,7 @@ export default function FindBook() {
           type="text"
           placeholder="Search for a book"
           onChange={(e) => handleBook(e)}
+          onKeyDown={Search}
         />
         <span onClick={submitBook}>Search</span>
       </div>
