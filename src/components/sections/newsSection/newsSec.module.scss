@@ -6,4 +6,10 @@
   &.hom1 {
     background-color: $maingreen;
   }
+  .card {
+    width: 100%;
+    img {
+      width: 100%;
+    }
+  }
 }
