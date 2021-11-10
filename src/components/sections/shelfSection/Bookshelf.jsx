@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./shelf.module.scss";
 import axios from "axios";
+import ReactPlayer from "react-player";
 
 export default function MisSec({ theme }) {
   let API = process.env.REACT_APP_API_KEY;
@@ -10,6 +11,8 @@ export default function MisSec({ theme }) {
   const [load, setLoad] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [music, setMusic] = useState("");
+  const [url, setUrl] = useState("");
 
   const wordHandler = (e) => {
     setWord(e.target.value);
@@ -32,6 +35,16 @@ export default function MisSec({ theme }) {
         });
     }
   };
+  const musicChange = (e) => {
+    setMusic(e.target.value);
+  };
+  const musicHandler = (e) => {
+    if (e.key === "Enter") {
+      setUrl(music);
+      setMusic("");
+    }
+  };
+
   return (
     <div
       className={`${styles.container} ${theme === "" ? "" : `${styles.hom1}`}`}
@@ -40,6 +53,53 @@ export default function MisSec({ theme }) {
         <div className={styles.left}>
           <div className={styles.leftTop}>
             <h3>My Music</h3>
+          </div>
+          <div className={styles.music}>
+            <input
+              type="text"
+              placeholder="Enter URL"
+              onKeyDown={musicHandler}
+              onChange={musicChange}
+              value={music}
+            />
+            <div className={styles.pl}>
+              <ReactPlayer
+                controls={true}
+                width="350px"
+                height="220px"
+                url="https://www.youtube.com/watch?v=w9rzz4pDFwA&list=OLAK5uy_keyJA-JsoAdfCylvyyIQMRjenzX6MzmnE&index=20"
+                className={styles.play}
+              />
+              <ReactPlayer
+                controls={true}
+                width="350px"
+                height="220px"
+                url="https://www.youtube.com/watch?v=A9sOb_r6Hy0"
+                className={styles.play}
+              />
+              <ReactPlayer
+                controls={true}
+                width="350px"
+                height="220px"
+                url="https://www.youtube.com/watch?v=A9sOb_r6Hy0"
+                className={styles.play}
+              />
+              <ReactPlayer
+                controls={true}
+                width="350px"
+                height="220px"
+                url="https://www.youtube.com/watch?v=A9sOb_r6Hy0"
+                className={styles.play}
+              />
+              {url && (
+                <ReactPlayer
+                  controls={true}
+                  width="350px"
+                  height="220px"
+                  url={url}
+                />
+              )}
+            </div>
           </div>
         </div>
         <div className={styles.center}>
