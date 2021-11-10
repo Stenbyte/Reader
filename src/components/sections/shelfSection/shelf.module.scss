@@ -81,6 +81,55 @@
           color: $color1;
         }
       }
+      .dic {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        align-items: flex-start;
+        input {
+          width: 20vw;
+          margin: 0 auto;
+          padding: 0.7rem;
+          outline: none;
+          border: none;
+          border-radius: 3px;
+          color: $color;
+        }
+        .span {
+          padding: 0.5rem;
+          margin: 1rem 0;
+          background-color: $fourth;
+          border-radius: 3px;
+          transition: all 0.5s ease;
+          cursor: default;
+          &:hover {
+            background-color: $second;
+            color: $color1;
+          }
+        }
+        .description {
+          display: flex;
+          flex-direction: column;
+          h2 {
+            font-weight: 400;
+            font-size: 2rem;
+            span {
+              font-weight: 300;
+              font-size: 1.7rem;
+            }
+          }
+          h4 {
+            font-size: 1.5rem;
+            font-weight: 300;
+            padding: 0.8rem 0;
+          }
+          p {
+            line-height: 1.5;
+            font-size: 1.3rem;
+            font-weight: 300;
+          }
+        }
+      }
     }
   }
 }
