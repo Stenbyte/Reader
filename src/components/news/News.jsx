@@ -6,10 +6,11 @@ export default function News() {
     <div className={styles.container}>
       <img src={st} alt="" />
       <p>
-        Welcome to Reader App MVP. This is the static version of this app. The
-        app will be updated as soon as one of the features will be implemented.
-        The info about the feature will be displayed here. Thank you for your
-        time. Sincerely, Sten Scheifel.
+        Welcome to the Reader App. This is the app that I'm currently working
+        on. All sections, except News, have their content. I'm using Google
+        Books, and Merriam Webster APIs. Please enjoy, and thank you for your
+        time.
+        <br /> Sincerely, Sten Scheifel.
       </p>
     </div>
   );
