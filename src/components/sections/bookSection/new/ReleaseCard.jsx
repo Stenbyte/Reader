@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Rel.module.scss";
 import book from "../../../../img/book.png";
+import Modal from "../../../modal/Modal";
 
 export default function ReleaseCard({ card }) {
   const [modal, setModal] = useState(false);
@@ -26,9 +27,9 @@ export default function ReleaseCard({ card }) {
       </div>
 
       {modal && (
-        <div className={styles.modal}>
+        <Modal handleModal={handleModal}>
           <div className={styles.card}>
-            <div className={styles.cardTop} onClick={handleModal}>
+            <div className={styles.cardTop}>
               <img
                 src={
                   card.volumeInfo.imageLinks
@@ -39,8 +40,8 @@ export default function ReleaseCard({ card }) {
               />
               <div className={styles.cardBottom}>
                 <h4>Author :{card.volumeInfo?.authors}</h4>
-                <p>Category : {card.volumeInfo?.categories}</p>
-                <p className={styles.line}>
+                <div>Category : {card.volumeInfo?.categories}</div>
+                <div className={styles.line}>
                   <a
                     href={card.volumeInfo?.infoLink}
                     alt=""
@@ -57,24 +58,24 @@ export default function ReleaseCard({ card }) {
                   >
                     Preview
                   </a>
-                  <p>Add to bookmarks</p>
-                  <p>Buy</p>
-                </p>
-                <p>Language : {card.volumeInfo?.language.toUpperCase()}</p>
-                <p>Pages : {card.volumeInfo?.pageCount}</p>
-                <p>Type : {card.volumeInfo?.printType}</p>
-                <p>Date : {card.volumeInfo?.publishedDate}</p>
-                <p>
+                  <div>Add to bookmarks</div>
+                  <div>Buy</div>
+                </div>
+                <div>Language : {card.volumeInfo?.language.toUpperCase()}</div>
+                <div>Pages : {card.volumeInfo?.pageCount}</div>
+                <div>Type : {card.volumeInfo?.printType}</div>
+                <div>Date : {card.volumeInfo?.publishedDate}</div>
+                <div>
                   Price : {card.saleInfo.listPrice?.amount}
                   {card.saleInfo.listPrice?.currencyCode}
-                </p>
+                </div>
               </div>
             </div>
             <div className={styles.description}>
               {card.volumeInfo.description}
             </div>
           </div>
-        </div>
+        </Modal>
       )}
     </>
   );

@@ -25,78 +25,81 @@
     }
   }
 }
-.modal {
+// .modal {
+//   position: absolute;
+//   z-index: 10;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   background-color: rgba(0, 0, 0, 0.303);
+// }
+.card {
+  width: 40vw;
   position: absolute;
-  z-index: 10;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(0, 0, 0, 0.303);
+  top: 5vh;
+  left: 30vw;
+  z-index: 100;
+  min-height: 50vh;
+  max-height: 90vh;
+  border-radius: 3px;
+  padding: 1rem;
+  overflow: auto;
+  background-color: $third;
+  .cardTop {
+    display: flex;
+    align-items: center;
+    max-height: 14rem;
+    img {
+      width: 8rem;
+    }
+    .cardBottom {
+      height: 12rem;
+      line-height: 1.5rem;
+      padding: 0 1rem;
+      .line {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 20vw;
+        cursor: pointer;
 
-  .card {
-    width: 40vw;
-    min-height: 50vh;
-    max-height: 90vh;
-    border-radius: 3px;
-    padding: 1rem;
-    overflow: auto;
-    z-index: 20;
-    background-color: $third;
-    .cardTop {
-      display: flex;
-      align-items: center;
-      max-height: 14rem;
-      img {
-        width: 8rem;
-      }
-      .cardBottom {
-        height: 12rem;
-        line-height: 1.5rem;
-        padding: 0 1rem;
-        .line {
-          display: flex;
-          align-items: center;
-          justify-content: space-around;
-          width: 20vw;
-          cursor: pointer;
+        a {
+          background-color: $second;
+          padding: 0.3rem;
+          border-radius: 3px;
+          color: $color1;
 
-          a {
-            background-color: $second;
-            padding: 0.3rem;
-            border-radius: 3px;
-            color: $color1;
-
-            text-decoration: none;
-            &:hover {
-              background-color: $first;
-            }
+          text-decoration: none;
+          &:hover {
+            background-color: $first;
           }
-          p {
-            background-color: $second;
-            padding: 0.3rem;
-            border-radius: 3px;
-            color: $color1;
+        }
+        p {
+          background-color: $second;
+          padding: 0.3rem;
+          border-radius: 3px;
+          color: $color1;
 
-            text-decoration: none;
-            &:hover {
-              background-color: $first;
-            }
+          text-decoration: none;
+          &:hover {
+            background-color: $first;
           }
         }
       }
     }
-    .description {
-      padding: 1rem;
-      margin: 0.4rem 0;
-      background-color: $fourth;
-      line-height: 1.4rem;
-      font-weight: 300;
-      font-size: 1.1rem;
-      border-radius: 3px;
-    }
+  }
+  .description {
+    padding: 1rem;
+    margin: 0.4rem 0;
+    background-color: $fourth;
+    line-height: 1.4rem;
+    font-weight: 300;
+    z-index: 30;
+    font-size: 1.1rem;
+    border-radius: 3px;
   }
 }
