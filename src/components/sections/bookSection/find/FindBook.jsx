@@ -1,23 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import styles from "./find.module.scss";
 import axios from "axios";
 import FindCard from "./FindCard";
 
 export default function FindBook() {
-  const [book, setBook] = useState("");
   const [cards, setCards] = useState([]);
-  const handleBook = (e) => {
-    setBook(e.target.value);
-  };
+  const bookRef = useRef();
 
   const submitBook = (e) => {
     e.preventDefault();
     axios
       .get(
-        `https://www.googleapis.com/books/v1/volumes?q=${book}&filter=ebooks&maxResults=10`
+        `https://www.googleapis.com/books/v1/volumes?q=${bookRef.current.value}&filter=ebooks&maxResults=10`
       )
       .then((res) => {
-        // console.log(res.data.items);
         setCards(res.data.items);
       })
       .catch((err) => {
@@ -36,8 +32,8 @@ export default function FindBook() {
         <input
           type="text"
           placeholder="Search for a book"
-          onChange={(e) => handleBook(e)}
           onKeyDown={Search}
+          ref={bookRef}
         />
         <span onClick={submitBook}>Search</span>
       </div>

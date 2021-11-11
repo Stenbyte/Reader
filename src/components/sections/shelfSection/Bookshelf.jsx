@@ -1,28 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import styles from "./shelf.module.scss";
 import axios from "axios";
 import ReactPlayer from "react-player";
+let musicList = [
+  {
+    id: 1,
+    url:
+      "https://www.youtube.com/watch?v=w9rzz4pDFwA&list=OLAK5uy_keyJA-JsoAdfCylvyyIQMRjenzX6MzmnE&index=20",
+  },
+  {
+    id: 2,
+    url: "https://www.youtube.com/watch?v=A9sOb_r6Hy0",
+  },
+  {
+    id: 3,
+    url: "https://www.youtube.com/watch?v=PdeoyBb8vhM",
+  },
+];
 
 export default function MisSec({ theme }) {
   let API = process.env.REACT_APP_API_KEY;
-  console.log(process.env);
-  const [word, setWord] = useState("");
+
   const [newWord, setNewWord] = useState("");
   const [load, setLoad] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [music, setMusic] = useState("");
-  const [url, setUrl] = useState("");
-
-  const wordHandler = (e) => {
-    setWord(e.target.value);
-  };
+  const [murl, setMurl] = useState(musicList);
+  const wordRef = useRef();
+  const musicRef = useRef();
+  console.log(murl);
   const enterHandle = (e) => {
     if (e.key === "Enter") {
       setLoading(true);
       axios
         .get(
-          `https://www.dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=${API}`
+          `https://www.dictionaryapi.com/api/v3/references/collegiate/json/${wordRef.current.value}?key=${API}`
         )
         .then((res) => {
           setNewWord(res.data[0]);
@@ -30,18 +42,23 @@ export default function MisSec({ theme }) {
           setLoading(false);
         })
         .catch((err) => {
-          console.log(err);
+          // console.log(err);
           setError(err.message);
         });
     }
   };
-  const musicChange = (e) => {
-    setMusic(e.target.value);
-  };
+
   const musicHandler = (e) => {
-    if (e.key === "Enter") {
-      setUrl(music);
-      setMusic("");
+    if (e.key === "Enter" && musicRef.current.value.startsWith("https://www")) {
+      setMurl((prevState) => {
+        return [
+          ...prevState,
+          {
+            id: Math.random() * 3,
+            url: musicRef.current.value,
+          },
+        ];
+      });
     }
   };
 
@@ -59,46 +76,19 @@ export default function MisSec({ theme }) {
               type="text"
               placeholder="Enter URL"
               onKeyDown={musicHandler}
-              onChange={musicChange}
-              value={music}
+              ref={musicRef}
             />
             <div className={styles.pl}>
-              <ReactPlayer
-                controls={true}
-                width="350px"
-                height="220px"
-                url="https://www.youtube.com/watch?v=w9rzz4pDFwA&list=OLAK5uy_keyJA-JsoAdfCylvyyIQMRjenzX6MzmnE&index=20"
-                className={styles.play}
-              />
-              <ReactPlayer
-                controls={true}
-                width="350px"
-                height="220px"
-                url="https://www.youtube.com/watch?v=A9sOb_r6Hy0"
-                className={styles.play}
-              />
-              <ReactPlayer
-                controls={true}
-                width="350px"
-                height="220px"
-                url="https://www.youtube.com/watch?v=A9sOb_r6Hy0"
-                className={styles.play}
-              />
-              <ReactPlayer
-                controls={true}
-                width="350px"
-                height="220px"
-                url="https://www.youtube.com/watch?v=A9sOb_r6Hy0"
-                className={styles.play}
-              />
-              {url && (
+              {murl.map((url) => (
                 <ReactPlayer
                   controls={true}
                   width="350px"
                   height="220px"
-                  url={url}
+                  url={url.url}
+                  className={styles.play}
+                  key={url.id}
                 />
-              )}
+              ))}
             </div>
           </div>
         </div>
@@ -108,14 +98,14 @@ export default function MisSec({ theme }) {
           </div>
         </div>
         <div className={styles.right}>
-          <div className={styles.rightTop} onClick={wordHandler}>
+          <div className={styles.rightTop}>
             <h3>Dictionary</h3>
           </div>
           <div className={styles.dic}>
             <input
               type="text"
-              onChange={wordHandler}
               onKeyDown={enterHandle}
+              ref={wordRef}
               placeholder="Search for a Word"
             />
             <span className={styles.span}>Save Word</span>
