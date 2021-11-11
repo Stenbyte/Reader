@@ -62,9 +62,11 @@ export default function ReleaseCard({ card }) {
                   <div>Buy</div>
                 </div>
                 <div>Language : {card.volumeInfo?.language.toUpperCase()}</div>
-                <div>Pages : {card.volumeInfo?.pageCount}</div>
-                <div>Type : {card.volumeInfo?.printType}</div>
-                <div>Date : {card.volumeInfo?.publishedDate}</div>
+                <p>Pages : {card.volumeInfo?.pageCount}</p>
+                <p>Type : {card.volumeInfo?.printType}</p>
+
+                <p>Date : {card.volumeInfo?.publishedDate}</p>
+
                 <div>
                   Price : {card.saleInfo.listPrice?.amount}
                   {card.saleInfo.listPrice?.currencyCode}
