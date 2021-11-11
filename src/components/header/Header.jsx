@@ -18,7 +18,7 @@ export default function Header({ handleTheme1, theme1 }) {
             <div className={`headerBtn ${theme1 && "btn2"}`}>PROFILE</div>
           </NavLink>
           <NavLink to="/friends">
-            <div className={`headerBtn ${theme1 && "btn2"}`}>FRIENDS</div>
+            <div className={`headerBtn ${theme1 && "btn2"}`}>READERS</div>
           </NavLink>
           <NavLink to="/books">
             <div className={`headerBtn ${theme1 && "btn2"}`}>BOOKS</div>

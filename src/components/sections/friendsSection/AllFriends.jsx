@@ -10,7 +10,10 @@ export default function AllFriends({ reader }) {
           <img src={reader.proImg} alt="proImg" className={styles.front} />
         </Link>
         <h4>{reader.name}</h4>
-        <p className={styles.rank}>Rank: {reader.rank}</p>
+        <div className={styles.con}>
+          <p className={styles.rank}>Rank: {reader.rank}</p>
+          <p className={styles.con1}>Connect</p>
+        </div>
         <p>City: {reader.location}</p>
       </div>
       <div className={styles.cardBottom}>

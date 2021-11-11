@@ -37,6 +37,9 @@
     &.btn2 {
       background-color: $secondgreen;
     }
+    &:hover {
+      background-color: $first;
+    }
   }
   .headerMiddle {
     display: flex;

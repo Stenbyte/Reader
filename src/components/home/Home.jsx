@@ -3,7 +3,7 @@ import styles from "./home.module.scss";
 import Reader from "../reader/Reader";
 import Book from "../book/Book";
 import Creator from "../creator/Creator";
-import Misc from "../misc/Misc";
+// import Misc from "../misc/Misc";
 import Profile from "../profile/Profile";
 import News from "../news/News";
 import { Readers } from "../data";
@@ -29,9 +29,10 @@ export default function Home({ theme }) {
           <Profile />
         </div>
         <div className={styles.creator}>
-          <div className={styles.creator1}>Bookshelf</div>
-          <Creator title="My Music" />
+          <div className={styles.creator1}>Friends</div>
+          {/* <Creator title="My Music" />
           <Creator title="Dictionary" />
+          <Creator title="My Books" /> */}
         </div>
         <img src="images/pencil.svg" alt="" className={styles.pencil} />
 
@@ -47,10 +48,10 @@ export default function Home({ theme }) {
         </div>
         <div className={styles.misc}>
           <div className={styles.misc1}>From the Creator</div>
-          <Misc title="Book Suggestion" />
-          <Misc title="Shop" />
-          <Misc title="Music" />
-          <Misc title="Quotes" />
+          <Creator title="Book Suggestion" />
+          <Creator title="Shop" />
+          <Creator title="Music" />
+          <Creator title="Quotes" />
         </div>
       </div>
     </div>

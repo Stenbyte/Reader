@@ -26,7 +26,7 @@ export default function Profile() {
       </div>
       <div className={styles.userBottom}>
         <div className={styles.bottomContainer}>
-          <h4>My Books</h4>
+          <h4>Notes</h4>
         </div>
         <div className={styles.bottomContainer}>
           <h4>Continue Reading</h4>

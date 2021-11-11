@@ -14,7 +14,8 @@ export default function Reader({ reader }) {
         <Link to={`/friends/${reader.id}`}>
           <div className={styles.profile}>profile</div>
         </Link>
-        <div className={styles.rank}>{reader.rank}</div>
+        <div className={styles.connect}>connect</div>
+        {/* <div className={styles.rank}>{reader.rank}</div> */}
       </div>
     </div>
   );

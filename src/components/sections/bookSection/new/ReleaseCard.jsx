@@ -26,9 +26,9 @@ export default function ReleaseCard({ card }) {
       </div>
 
       {modal && (
-        <div className={styles.modal} onClick={handleModal}>
+        <div className={styles.modal}>
           <div className={styles.card}>
-            <div className={styles.cardTop}>
+            <div className={styles.cardTop} onClick={handleModal}>
               <img
                 src={
                   card.volumeInfo.imageLinks
@@ -40,7 +40,7 @@ export default function ReleaseCard({ card }) {
               <div className={styles.cardBottom}>
                 <h4>Author :{card.volumeInfo?.authors}</h4>
                 <p>Category : {card.volumeInfo?.categories}</p>
-                <p>
+                <p className={styles.line}>
                   <a
                     href={card.volumeInfo?.infoLink}
                     alt=""
@@ -57,6 +57,8 @@ export default function ReleaseCard({ card }) {
                   >
                     Preview
                   </a>
+                  <p>Add to bookmarks</p>
+                  <p>Buy</p>
                 </p>
                 <p>Language : {card.volumeInfo?.language.toUpperCase()}</p>
                 <p>Pages : {card.volumeInfo?.pageCount}</p>

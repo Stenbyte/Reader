@@ -24,7 +24,7 @@
       object-fit: cover;
       width: 7rem;
       border-radius: 0px 3px 10px 0px;
-      border: 1px solid $fourth;
+      border: 1px solid $fourthgreen;
       border-style: solid solid solid none;
       cursor: pointer;
     }
@@ -33,13 +33,28 @@
       margin-top: 1.5rem;
       padding: 0.3rem;
     }
-    .rank {
-      background-color: $second;
-      max-width: 5rem;
-      padding: 0.3rem;
-      margin: 0 0.3rem;
-      color: $color1;
-      border-radius: 3px;
+    .con {
+      display: flex;
+      text-align: center;
+      .rank {
+        background-color: $second;
+        min-width: 4rem;
+        padding: 0.3rem;
+        margin: 0 0.3rem;
+        color: $color1;
+        border-radius: 3px;
+      }
+      .con1 {
+        background-color: $third;
+        border: 1px solid $second;
+        border-radius: 3px;
+        transition: all 0.6s ease-in-out;
+        &:hover {
+          background-color: $second;
+          color: $color1;
+          border: 1px solid $third;
+        }
+      }
     }
     p {
       font-weight: 300;

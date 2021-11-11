@@ -8,6 +8,7 @@
   margin: 0.4rem;
   display: flex;
   position: relative;
+  cursor: pointer;
 
   img {
     width: 7rem;
@@ -43,6 +44,7 @@
     border-radius: 3px;
     padding: 1rem;
     overflow: auto;
+    z-index: 20;
     background-color: $third;
     .cardTop {
       display: flex;
@@ -55,15 +57,34 @@
         height: 12rem;
         line-height: 1.5rem;
         padding: 0 1rem;
-        a {
-          background-color: $second;
-          padding: 0.3rem;
-          border-radius: 3px;
-          color: $color1;
-          margin-right: 1rem;
-          text-decoration: none;
-          &:hover {
-            background-color: $first;
+        .line {
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          width: 20vw;
+          cursor: pointer;
+
+          a {
+            background-color: $second;
+            padding: 0.3rem;
+            border-radius: 3px;
+            color: $color1;
+
+            text-decoration: none;
+            &:hover {
+              background-color: $first;
+            }
+          }
+          p {
+            background-color: $second;
+            padding: 0.3rem;
+            border-radius: 3px;
+            color: $color1;
+
+            text-decoration: none;
+            &:hover {
+              background-color: $first;
+            }
           }
         }
       }
