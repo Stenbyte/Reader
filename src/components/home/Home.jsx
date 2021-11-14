@@ -3,12 +3,16 @@ import styles from "./home.module.scss";
 import Reader from "../reader/Reader";
 import Book from "../book/Book";
 import Creator from "../creator/Creator";
-// import Misc from "../misc/Misc";
 import Profile from "../profile/Profile";
 import News from "../news/News";
 import { Readers } from "../data";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import FriendList from "../friendList/FriendList";
+
 export default function Home({ theme }) {
+  const friends = useSelector((state) => state.friend.friend);
+
   return (
     <div
       className={`${styles.container} ${theme === "" ? "" : `${styles.hom1}`}`}
@@ -30,9 +34,9 @@ export default function Home({ theme }) {
         </div>
         <div className={styles.creator}>
           <div className={styles.creator1}>Friends</div>
-          {/* <Creator title="My Music" />
-          <Creator title="Dictionary" />
-          <Creator title="My Books" /> */}
+          {friends.map((friend) => (
+            <FriendList friend={friend} key={friend.id} />
+          ))}
         </div>
         <img src="images/pencil.svg" alt="" className={styles.pencil} />
 
@@ -43,11 +47,11 @@ export default function Home({ theme }) {
           <Book title="Bookmarks" />
         </div>
         <div className={styles.news}>
-          News
+          <h4>News </h4>
           <News />
         </div>
         <div className={styles.misc}>
-          <div className={styles.misc1}>From the Creator</div>
+          <div className={styles.misc1}>From the Creator </div>
           <Creator title="Book Suggestion" />
           <Creator title="Shop" />
           <Creator title="Music" />

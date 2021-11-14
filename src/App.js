@@ -1,5 +1,5 @@
-import "./App.scss";
 import React, { useState, useEffect } from "react";
+import "./App.scss";
 import Header from "./components/header/Header";
 import { Routes, Route } from "react-router-dom";
 import BookSection from "./components/sections/bookSection/BookSection";
@@ -11,17 +11,19 @@ import Friends from "./components/sections/friendsSection/Friends";
 import Friend from "./components/sections/friendsSection/Friend";
 
 function App() {
-  const handleTheme1 = (theme) => {
-    setTheme(theme);
-    localStorage.setItem("theme", theme);
-  };
   const [theme, setTheme] = useState("");
+
   useEffect(() => {
-    const current = localStorage.getItem("theme");
+    const current = sessionStorage.getItem("theme");
+
     if (current) {
       setTheme(current);
     }
   }, []);
+  const handleTheme1 = (theme) => {
+    setTheme(theme);
+    sessionStorage.setItem("theme", theme);
+  };
   return (
     <div className="App">
       <Routes>
@@ -35,7 +37,7 @@ function App() {
           <Route path="friends" element={<Friends theme={theme} />} />
           <Route path="friends/:friendId" element={<Friend theme={theme} />} />
           <Route path="news" element={<NewsSec theme={theme} />} />
-          <Route path="misc" element={<Bookshelf theme={theme} />} />
+          <Route path="bookshelf" element={<Bookshelf theme={theme} />} />
           <Route
             path="*"
             element={
