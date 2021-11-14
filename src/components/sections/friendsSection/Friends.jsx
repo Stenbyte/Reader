@@ -2,9 +2,11 @@ import React from "react";
 import styles from "./friends.module.scss";
 import AllFriends from "./AllFriends";
 // import Friend from "./Friend";
-import { Readers } from "../../data";
+// import { Readers } from "../../data";
+import { useSelector } from "react-redux";
 
 export default function Friends({ theme }) {
+  const Readers = useSelector((state) => state.friend.list);
   return (
     <>
       <div

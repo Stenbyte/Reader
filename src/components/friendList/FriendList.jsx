@@ -7,7 +7,18 @@ import { friendActions } from "../../store/friendSlice";
 export default function FriendList({ friend }) {
   const dispatch = useDispatch();
   const remove = () => {
-    dispatch(friendActions.removeFriend({ id: friend.id }));
+    dispatch(
+      friendActions.removeFriend({
+        id: friend.id,
+        name: friend.name,
+        proImg: friend.proImg,
+        category: friend.category,
+        rank: friend.rank,
+        backImg: friend.backImg,
+        location: friend.location,
+        // con: "Connect",
+      })
+    );
   };
   return (
     <div className={styles.container}>

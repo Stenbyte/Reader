@@ -1,8 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { Readers } from "../components/data";
 
 const initialState = {
   friend: [],
-  show: true,
+  list: Readers,
 };
 const friendSlice = createSlice({
   name: "friend",
@@ -19,13 +20,28 @@ const friendSlice = createSlice({
           id: action.payload.id,
           name: action.payload.name,
           proImg: action.payload.proImg,
+          category: action.payload.category,
+          rank: action.payload.rank,
+          backImg: action.payload.backImg,
+          location: action.payload.location,
+          //   con: action.payload.con,
         });
+        state.list = state.list.filter((user) => user.id !== newFriend.id);
       }
     },
     removeFriend(state, action) {
       const remove = action.payload;
       state.friend = state.friend.filter((frie) => frie.id !== remove.id);
-      state.show = true;
+      state.list.push({
+        id: action.payload.id,
+        name: action.payload.name,
+        proImg: action.payload.proImg,
+        category: action.payload.category,
+        rank: action.payload.rank,
+        backImg: action.payload.backImg,
+        location: action.payload.location,
+        // con: action.payload.con,
+      });
     },
   },
 });

@@ -5,12 +5,13 @@ import Book from "../book/Book";
 import Creator from "../creator/Creator";
 import Profile from "../profile/Profile";
 import News from "../news/News";
-import { Readers } from "../data";
+// import { Readers } from "../data";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import FriendList from "../friendList/FriendList";
 
 export default function Home({ theme }) {
+  const Readers = useSelector((state) => state.friend.list);
   const friends = useSelector((state) => state.friend.friend);
 
   return (

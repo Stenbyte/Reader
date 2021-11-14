@@ -19,7 +19,7 @@ export default function AllFriends({ reader }) {
       <div className={styles.cardBottom}>
         <h4>Likes to read</h4>
         <p>
-          <span>Categories:</span> {reader.category.join(", ")}
+          <span>Categories:</span> {reader?.category?.join(", ")}
         </p>
       </div>
     </div>
