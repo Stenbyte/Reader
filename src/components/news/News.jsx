@@ -7,9 +7,10 @@ export default function News() {
       <img src={st} alt="" />
       <p>
         Welcome to the Reader App. This is the app that I'm currently working
-        on. All sections, except News, have their content. I'm using Google
-        Books, and Merriam Webster APIs. Please enjoy, and thank you for your
-        time.
+        on. All sections, except News, have their content. I'm using
+        React-Redux, the user can add or remove a friend. Besides other sections
+        are implemented with Google Books and Merriam Webster APIs. Please
+        enjoy, and thank you for your time.
         <br /> Sincerely, Sten Scheifel.
       </p>
     </div>
