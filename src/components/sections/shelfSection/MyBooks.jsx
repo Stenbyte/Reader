@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import styles from "./myBooks.module.scss";
 import Modal from "../../modal/Modal";
-import { bookmarkActions } from "../../../store/bookmarkSlice";
+// import { bookmarkActions } from "../../../store/bookmarkSlice";
+import bookImg from "../../../img/book.png";
 
 export default function MyBooks({ book }) {
   const [modal, setModal] = useState(false);
@@ -13,7 +14,12 @@ export default function MyBooks({ book }) {
     <>
       <div className={styles.card}>
         <div className={styles.cardTop}>
-          <img src={book.img} alt="" onClick={handleModal} />
+          <img
+            src={book.img ? book.img : bookImg}
+            alt=""
+            onClick={handleModal}
+          />
+
           <div className={styles.title}>
             <h4>Author: {book.author}</h4>
             <p>Title: {book.title}</p>

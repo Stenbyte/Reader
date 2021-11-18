@@ -29,6 +29,12 @@ const bookmarkSlice = createSlice({
         });
       }
     },
+    remove(state, action) {
+      const newbook = action.payload;
+      state.bookmarks = state.bookmarks.filter(
+        (book) => book.id !== newbook.id
+      );
+    },
   },
 });
 

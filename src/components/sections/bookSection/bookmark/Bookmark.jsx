@@ -3,13 +3,41 @@ import styles from "./bookmark.module.scss";
 // import { useSelector } from "react-redux";
 import bookImg from "../../../../img/book.png";
 import Modal from "../../../modal/Modal";
+import { bookmarkActions } from "../../../../store/bookmarkSlice";
+import { useDispatch } from "react-redux";
+import { buySliceActions } from "../../../../store/buyBook";
 
 export default function Bookmark({ book, home }) {
   const [modal, setModal] = useState(false);
-  //   const bookmarks = useSelector((state) => state.bookmark.bookmarks);
-  const bookmarkHandler = () => {};
+  const dispatch = useDispatch();
+  const bookmarkHandler = () => {
+    dispatch(
+      bookmarkActions.remove({
+        id: book.id,
+      })
+    );
+  };
   const handleModal = () => {
     setModal(!modal);
+  };
+  const buyHandler = () => {
+    dispatch(
+      buySliceActions.buyBook({
+        id: book.id,
+        author: book.author,
+        img: book.img,
+        title: book.title,
+        link: book.link,
+        categories: book.categories,
+        infoLink: book.infoLink,
+        language: book.language,
+        pages: book.pages,
+        type: book.type,
+        date: book.date,
+        price: book.price,
+        description: book.description,
+      })
+    );
   };
   return (
     <>
@@ -41,7 +69,7 @@ export default function Bookmark({ book, home }) {
                     Preview
                   </a>
                   <p onClick={bookmarkHandler}>Remove</p>
-                  {/* <p>Buy</p> */}
+                  <p onClick={buyHandler}>Buy</p>
                 </div>
                 <div>Language : {book?.language.toUpperCase()}</div>
                 <p>Pages : {book?.pages}</p>
