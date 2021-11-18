@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./home.module.scss";
 import Reader from "../reader/Reader";
-import Book from "../book/Book";
+// import Book from "../book/Book";
 import Creator from "../creator/Creator";
 import Profile from "../profile/Profile";
 import News from "../news/News";
