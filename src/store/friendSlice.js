@@ -26,6 +26,7 @@ const friendSlice = createSlice({
           location: action.payload.location,
           //   con: action.payload.con,
         });
+        // Updating list state
         state.list = state.list.filter((user) => user.id !== newFriend.id);
       }
     },

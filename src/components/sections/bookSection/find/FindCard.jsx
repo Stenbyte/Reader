@@ -1,20 +1,46 @@
 import React, { useState } from "react";
 import styles from "./card.module.scss";
 import Modal from "../../../modal/Modal";
+import { useDispatch } from "react-redux";
+import { bookmarkActions } from "../../../../store/bookmarkSlice";
 export default function FindCard({ card }) {
   const [modal, setModal] = useState(false);
+  const dispatch = useDispatch();
   const handleModal = () => {
     setModal(!modal);
   };
+  const addHandler = () => {
+    dispatch(
+      bookmarkActions.addBook({
+        id: card.id,
+        author: card.volumeInfo.authors,
+        img: card.volumeInfo?.imageLinks?.smallThumbnail,
+        title: card.volumeInfo.title,
+        link: card.volumeInfo?.previewLink,
+        categories: card.volumeInfo?.categories,
+        infoLink: card.volumeInfo?.infoLink,
+        language: card.volumeInfo?.language,
+        pages: card.volumeInfo?.pageCount,
+        type: card.volumeInfo?.printType,
+        date: card.volumeInfo?.publishedDate,
+        price: card.saleInfo.listPrice?.amount,
+        description: card.volumeInfo.description,
+      })
+    );
+  };
   return (
     <>
-      <div className={styles.card} onClick={handleModal}>
+      <div className={styles.card}>
         <div className={styles.cardTop}>
-          <img src={card.volumeInfo.imageLinks.smallThumbnail} alt="" />
+          <img
+            src={card.volumeInfo.imageLinks.smallThumbnail}
+            alt=""
+            onClick={handleModal}
+          />
           <div className={styles.title}>
             <h4>Author: {card.volumeInfo?.authors}</h4>
             <p>Title: {card.volumeInfo?.title}</p>
-            <p>
+            <div className={styles.box}>
               <a
                 href={card.volumeInfo?.infoLink}
                 alt=""
@@ -31,7 +57,8 @@ export default function FindCard({ card }) {
               >
                 Preview
               </a>
-            </p>
+              <p onClick={addHandler}>Add</p>
+            </div>
             <p>Language: {card.volumeInfo?.language.toUpperCase()}</p>
             <p>Pages: {card.volumeInfo?.pageCount}</p>
             <p>Type: {card.volumeInfo?.printType}</p>

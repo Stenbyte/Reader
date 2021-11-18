@@ -14,20 +14,27 @@
       padding-right: 0.5rem;
       width: 7vw;
       height: 20vh;
+      cursor: pointer;
     }
     .title {
       line-height: 1.4;
       font-weight: 300;
-      a {
-        background-color: $second;
-        margin-right: 0.3rem;
-        padding: 0.3rem;
-        color: $color1;
-        border-radius: 3px;
-        text-decoration: none;
-        transition: all 1s ease;
-        &:hover {
-          background-color: $first;
+      .box {
+        display: flex;
+        align-items: center;
+        a,
+        p {
+          background-color: $second;
+          margin-right: 0.3rem;
+          padding: 0.3rem;
+          color: $color1;
+          border-radius: 3px;
+          text-decoration: none;
+          transition: all 1s ease;
+          cursor: pointer;
+          &:hover {
+            background-color: $first;
+          }
         }
       }
     }

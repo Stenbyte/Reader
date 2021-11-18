@@ -58,7 +58,7 @@ export default function Home({ theme }) {
         <div className={styles.misc}>
           <div className={styles.misc1}>From the Creator </div>
           <Creator title="Book Suggestion" />
-          <Creator title="Shop" />
+          {/* <Creator title="Shop" /> */}
           <Creator title="Music" />
           <Creator title="Quotes" />
         </div>

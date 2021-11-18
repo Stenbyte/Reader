@@ -2,13 +2,34 @@ import React, { useState } from "react";
 import styles from "./Rel.module.scss";
 import book from "../../../../img/book.png";
 import Modal from "../../../modal/Modal";
+import { useDispatch } from "react-redux";
+import { bookmarkActions } from "../../../../store/bookmarkSlice";
 
 export default function ReleaseCard({ card }) {
+  const dispatch = useDispatch();
   const [modal, setModal] = useState(false);
   const handleModal = () => {
     setModal(!modal);
   };
-  //   console.log(card);
+  const bookmarkHandler = () => {
+    dispatch(
+      bookmarkActions.addBook({
+        id: card.id,
+        author: card.volumeInfo.authors,
+        img: card.volumeInfo?.imageLinks?.smallThumbnail,
+        title: card.volumeInfo.title,
+        link: card.volumeInfo?.previewLink,
+        categories: card.volumeInfo?.categories,
+        infoLink: card.volumeInfo?.infoLink,
+        language: card.volumeInfo?.language,
+        pages: card.volumeInfo?.pageCount,
+        type: card.volumeInfo?.printType,
+        date: card.volumeInfo?.publishedDate,
+        price: card.saleInfo.listPrice?.amount,
+        description: card.volumeInfo.description,
+      })
+    );
+  };
   return (
     <>
       <div className={styles.list} key={card.id} onClick={handleModal}>
@@ -58,8 +79,8 @@ export default function ReleaseCard({ card }) {
                   >
                     Preview
                   </a>
-                  <div>Add to bookmarks</div>
-                  <div>Buy</div>
+                  <p onClick={bookmarkHandler}>Add to bookmarks</p>
+                  {/* <p>Buy</p> */}
                 </div>
                 <div>Language : {card.volumeInfo?.language.toUpperCase()}</div>
                 <p>Pages : {card.volumeInfo?.pageCount}</p>
