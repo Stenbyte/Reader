@@ -76,7 +76,7 @@
     .book {
       grid-area: book;
       background-color: $third;
-      overflow: hidden;
+      // overflow: auto;
       text-align: left;
       width: 25vw;
       padding: 0 0.4rem;
