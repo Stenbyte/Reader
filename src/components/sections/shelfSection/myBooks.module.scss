@@ -1,0 +1,71 @@
+@import "../../../global.scss";
+
+.card {
+  background-color: $fourth;
+  margin: 1rem;
+  width: 28vw;
+  min-height: 30vh;
+  padding: 1rem;
+  border-radius: 3px;
+  position: relative;
+  .cardTop {
+    display: flex;
+    img {
+      padding-right: 0.5rem;
+      width: 7vw;
+      height: 20vh;
+      cursor: pointer;
+    }
+    .title {
+      line-height: 1.4;
+      font-weight: 300;
+      .box {
+        display: flex;
+        align-items: center;
+        a,
+        p {
+          background-color: $second;
+          margin-right: 0.3rem;
+          padding: 0.3rem;
+          color: $color1;
+          border-radius: 3px;
+          text-decoration: none;
+          transition: all 1s ease;
+          cursor: pointer;
+          &:hover {
+            background-color: $first;
+          }
+        }
+      }
+    }
+  }
+}
+.description {
+  padding: 1rem;
+  margin: 0.4rem 0;
+  background-color: $fourth;
+  position: absolute;
+  top: 10vh;
+  left: 30vw;
+  width: 40vw;
+  min-height: 10vh;
+  max-height: 70vh;
+  z-index: 30;
+  line-height: 1.7rem;
+  font-weight: 300;
+  font-size: 1.1rem;
+  border-radius: 3px;
+  overflow: auto;
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    h3 {
+      margin-bottom: 1rem;
+      font-weight: 400;
+    }
+    span {
+      cursor: pointer;
+    }
+  }
+}

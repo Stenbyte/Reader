@@ -47,9 +47,7 @@ export default function Home({ theme }) {
         <img src="images/pencil.svg" alt="" className={styles.pencil} />
 
         <div className={styles.book}>
-          {/* <div className={styles.bookTop}>Bookmarks</div> */}
           <Bookmarks home="home" />
-          {/* <Book title="Bookmarks" /> */}
         </div>
         <div className={styles.news}>
           <h4>News </h4>

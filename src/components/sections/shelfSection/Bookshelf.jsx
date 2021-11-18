@@ -2,6 +2,8 @@ import React, { useState, useRef } from "react";
 import styles from "./shelf.module.scss";
 import axios from "axios";
 import ReactPlayer from "react-player";
+import { useSelector } from "react-redux";
+import MyBooks from "./MyBooks";
 let musicList = [
   {
     id: 1,
@@ -19,6 +21,8 @@ let musicList = [
 ];
 
 export default function MisSec({ theme }) {
+  const BoughtBooks = useSelector((state) => state.buyBook.boughtBooks);
+  console.log(BoughtBooks);
   let API = process.env.REACT_APP_API_KEY;
 
   const [newWord, setNewWord] = useState("");
@@ -28,7 +32,7 @@ export default function MisSec({ theme }) {
   const [murl, setMurl] = useState(musicList);
   const wordRef = useRef();
   const musicRef = useRef();
-  console.log(murl);
+
   const enterHandle = (e) => {
     if (e.key === "Enter") {
       setLoading(true);
@@ -95,6 +99,11 @@ export default function MisSec({ theme }) {
         <div className={styles.center}>
           <div className={styles.centerTop}>
             <h3>My Books</h3>
+          </div>
+          <div className={styles.centerBottom}>
+            {BoughtBooks.map((book) => (
+              <MyBooks key={book.id} book={book} />
+            ))}
           </div>
         </div>
         <div className={styles.right}>

@@ -10,9 +10,7 @@ export default function Bookmarks({ home }) {
       <h4 className={styles.title}>Bookmarks</h4>
       {bookmarks.length === 0 && <p>You don't have any bookmarks yet</p>}
       {bookmarks.map((book) => (
-        <>
-          <Bookmark key={book.id} book={book} home={home} />
-        </>
+        <Bookmark key={book.id} book={book} home={home} />
       ))}
     </div>
   );

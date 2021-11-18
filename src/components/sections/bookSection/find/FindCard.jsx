@@ -58,6 +58,7 @@ export default function FindCard({ card }) {
                 Preview
               </a>
               <p onClick={addHandler}>Add</p>
+              <p>Buy</p>
             </div>
             <p>Language: {card.volumeInfo?.language.toUpperCase()}</p>
             <p>Pages: {card.volumeInfo?.pageCount}</p>
