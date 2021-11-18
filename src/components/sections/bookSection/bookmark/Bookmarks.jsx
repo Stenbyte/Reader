@@ -3,7 +3,7 @@ import styles from "./bookmark.module.scss";
 import { useSelector } from "react-redux";
 
 import Bookmark from "./Bookmark.jsx";
-export default function Bookmarks() {
+export default function Bookmarks({ home }) {
   const bookmarks = useSelector((state) => state.bookmark.bookmarks);
   return (
     <div className={styles.bookmark}>
@@ -11,7 +11,7 @@ export default function Bookmarks() {
       {bookmarks.length === 0 && <p>You don't have any bookmarks yet</p>}
       {bookmarks.map((book) => (
         <>
-          <Bookmark key={book.id} book={book} />
+          <Bookmark key={book.id} book={book} home={home} />
         </>
       ))}
     </div>

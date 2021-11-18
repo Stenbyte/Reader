@@ -12,6 +12,8 @@
   color: $color1;
   letter-spacing: 0.2rem;
   transition: all 1s ease;
+  position: sticky;
+  top: 0;
   &.head2 {
     background-color: $firstgreen;
   }

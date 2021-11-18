@@ -4,7 +4,7 @@ import styles from "./bookmark.module.scss";
 import bookImg from "../../../../img/book.png";
 import Modal from "../../../modal/Modal";
 
-export default function Bookmark({ book }) {
+export default function Bookmark({ book, home }) {
   const [modal, setModal] = useState(false);
   //   const bookmarks = useSelector((state) => state.bookmark.bookmarks);
   const bookmarkHandler = () => {};
@@ -21,7 +21,7 @@ export default function Bookmark({ book }) {
         </div>
       </div>
       {modal && (
-        <Modal handleModal={handleModal}>
+        <Modal home={home} handleModal={handleModal}>
           <div className={styles.card}>
             <div className={styles.cardTop}>
               <img src={book.img ? book.img : bookImg} alt="" />

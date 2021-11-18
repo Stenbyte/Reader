@@ -9,6 +9,7 @@ import News from "../news/News";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import FriendList from "../friendList/FriendList";
+import Bookmarks from "../sections/bookSection/bookmark/Bookmarks";
 
 export default function Home({ theme }) {
   const Readers = useSelector((state) => state.friend.list);
@@ -46,10 +47,9 @@ export default function Home({ theme }) {
         <img src="images/pencil.svg" alt="" className={styles.pencil} />
 
         <div className={styles.book}>
-          <Link to="/books">
-            <div className={styles.bookTop}>Books</div>
-          </Link>
-          <Book title="Bookmarks" />
+          {/* <div className={styles.bookTop}>Bookmarks</div> */}
+          <Bookmarks home="home" />
+          {/* <Book title="Bookmarks" /> */}
         </div>
         <div className={styles.news}>
           <h4>News </h4>
