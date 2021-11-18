@@ -13,6 +13,7 @@ import FriendList from "../friendList/FriendList";
 export default function Home({ theme }) {
   const Readers = useSelector((state) => state.friend.list);
   const friends = useSelector((state) => state.friend.friend);
+  console.log(friends);
 
   return (
     <div
@@ -35,6 +36,9 @@ export default function Home({ theme }) {
         </div>
         <div className={styles.creator}>
           <div className={styles.creator1}>Friends</div>
+          {friends.length === 0 && (
+            <p style={{ padding: "3rem" }}>Connect with others</p>
+          )}
           {friends.map((friend) => (
             <FriendList friend={friend} key={friend.id} />
           ))}

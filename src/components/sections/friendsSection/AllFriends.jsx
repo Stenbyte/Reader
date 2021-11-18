@@ -1,7 +1,23 @@
 import React from "react";
 import styles from "./all.module.scss";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { friendActions } from "../../../store/friendSlice";
 export default function AllFriends({ reader }) {
+  const dispatch = useDispatch();
+  const connectHandler = () => {
+    dispatch(
+      friendActions.connectFriend({
+        id: reader.id,
+        name: reader.name,
+        proImg: reader.proImg,
+        category: reader.category,
+        rank: reader.rank,
+        backImg: reader.backImg,
+        location: reader.location,
+      })
+    );
+  };
   return (
     <div className={styles.card}>
       <div className={styles.cardTop}>
@@ -12,7 +28,9 @@ export default function AllFriends({ reader }) {
         <h4>{reader.name}</h4>
         <div className={styles.con}>
           <p className={styles.rank}>Rank: {reader.rank}</p>
-          <p className={styles.con1}>Connect</p>
+          <p className={styles.con1} onClick={connectHandler}>
+            Connect
+          </p>
         </div>
         <p>City: {reader.location}</p>
       </div>
