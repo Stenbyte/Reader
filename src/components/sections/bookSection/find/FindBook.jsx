@@ -5,9 +5,12 @@ import FindCard from "./FindCard";
 
 export default function FindBook() {
   const [cards, setCards] = useState([]);
+  const [loading, setLoading] = useState(false);
   const bookRef = useRef();
 
   const submitBook = (e) => {
+    setLoading(true);
+    setCards([]);
     e.preventDefault();
     axios
       .get(
@@ -15,6 +18,7 @@ export default function FindBook() {
       )
       .then((res) => {
         setCards(res.data.items);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
@@ -38,6 +42,7 @@ export default function FindBook() {
         <span onClick={submitBook}>Search</span>
       </div>
       <div className={styles.result}>
+        {loading && <p>Loading...</p>}
         {cards && cards.map((card) => <FindCard card={card} key={card.id} />)}
       </div>
     </div>
