@@ -6,10 +6,15 @@ import Modal from "../../../modal/Modal";
 import { bookmarkActions } from "../../../../store/bookmarkSlice";
 import { useDispatch } from "react-redux";
 import { buySliceActions } from "../../../../store/buyBook";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export default function Bookmark({ book, home }) {
   const [modal, setModal] = useState(false);
+
+  const notify = () =>
+    toast.success("Thank you. Book is available in Bookshelf section");
   const dispatch = useDispatch();
+
   const bookmarkHandler = () => {
     dispatch(
       bookmarkActions.remove({
@@ -20,6 +25,7 @@ export default function Bookmark({ book, home }) {
   const handleModal = () => {
     setModal(!modal);
   };
+
   const buyHandler = () => {
     dispatch(
       buySliceActions.buyBook({
@@ -38,6 +44,7 @@ export default function Bookmark({ book, home }) {
         description: book.description,
       })
     );
+    notify();
   };
   return (
     <>
@@ -69,6 +76,7 @@ export default function Bookmark({ book, home }) {
                     Preview
                   </a>
                   <p onClick={bookmarkHandler}>Remove</p>
+
                   <p onClick={buyHandler}>Buy</p>
                 </div>
                 <div>Language : {book?.language.toUpperCase()}</div>
@@ -85,6 +93,7 @@ export default function Bookmark({ book, home }) {
             </div>
             <div className={styles.description}>{book.description}</div>
           </div>
+          <ToastContainer autoClose={5000} />
         </Modal>
       )}
     </>
