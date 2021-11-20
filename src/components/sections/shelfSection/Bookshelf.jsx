@@ -22,7 +22,7 @@ let musicList = [
 
 export default function MisSec({ theme }) {
   const BoughtBooks = useSelector((state) => state.buyBook.boughtBooks);
-  console.log(BoughtBooks);
+  // console.log(BoughtBooks);
   let API = process.env.REACT_APP_API_KEY;
 
   const [newWord, setNewWord] = useState("");
@@ -117,26 +117,27 @@ export default function MisSec({ theme }) {
               ref={wordRef}
               placeholder="Search for a Word"
             />
-            <span className={styles.span}>Save Word</span>
-            <div className={styles.description}>
-              <h2>
-                {newWord.hwi?.hw.toUpperCase()} <span>{newWord.fl}</span>
-              </h2>
-              {loading && <p>Loading...</p>}
-              {load && (
-                <>
+            {loading && <p>Loading...</p>}
+            {load && (
+              <>
+                <span className={styles.span}>Save Word</span>
+                <div className={styles.description}>
+                  <h2>
+                    {newWord.hwi?.hw.toUpperCase()} <span>{newWord.fl}</span>
+                  </h2>
+
                   <h4>Deffiniton</h4>
-                  <p>
+                  {/* <p>
                     Offensive:{" "}
                     {newWord.meta?.offensive === false ? "No" : "Yes"}
-                  </p>
+                  </p> */}
                   <p>1: {newWord.shortdef ? newWord.shortdef[0] : ""} </p>
                   <p>2: {newWord.shortdef ? newWord.shortdef[1] : ""} </p>
                   <p>3: {newWord.shortdef ? newWord.shortdef[2] : ""} </p>
-                </>
-              )}
-              {error}
-            </div>
+                </div>
+              </>
+            )}
+            {error}
           </div>
         </div>
       </div>
