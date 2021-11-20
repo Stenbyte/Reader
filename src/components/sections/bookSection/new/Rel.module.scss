@@ -78,12 +78,12 @@
             background-color: $first;
           }
         }
-        p {
+        button {
           background-color: $second;
-          padding: 0.3rem;
+          padding: 0.6rem;
           border-radius: 3px;
           color: $color1;
-
+          border: none;
           text-decoration: none;
           &:hover {
             background-color: $first;

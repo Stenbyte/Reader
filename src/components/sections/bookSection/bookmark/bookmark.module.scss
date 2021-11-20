@@ -72,8 +72,8 @@
       .line {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        width: 15vw;
+        // justify-content: space-between;
+        width: 17vw;
         cursor: pointer;
 
         a {
@@ -81,18 +81,19 @@
           padding: 0.3rem;
           border-radius: 3px;
           color: $color1;
-
+          margin-right: 0.3rem;
           text-decoration: none;
           &:hover {
             background-color: $first;
           }
         }
-        p {
+        button {
           background-color: $second;
-          padding: 0.3rem;
+          padding: 0.6rem;
           border-radius: 3px;
+          margin-right: 0.3rem;
           color: $color1;
-
+          border: none;
           text-decoration: none;
           &:hover {
             background-color: $first;

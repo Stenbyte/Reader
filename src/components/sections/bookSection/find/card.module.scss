@@ -23,11 +23,12 @@
         display: flex;
         align-items: center;
         a,
-        p {
+        button {
           background-color: $second;
           margin-right: 0.3rem;
-          padding: 0.3rem;
+
           color: $color1;
+          border: none;
           border-radius: 3px;
           text-decoration: none;
           transition: all 1s ease;
@@ -35,6 +36,12 @@
           &:hover {
             background-color: $first;
           }
+        }
+        button {
+          padding: 0.5rem;
+        }
+        a {
+          padding: 0.3rem;
         }
       }
     }

@@ -13,6 +13,7 @@
   letter-spacing: 0.2rem;
   transition: all 1s ease;
   position: sticky;
+  z-index: 10;
   top: 0;
   &.head2 {
     background-color: $firstgreen;

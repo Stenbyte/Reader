@@ -5,10 +5,13 @@ import Modal from "../../../modal/Modal";
 import { useDispatch } from "react-redux";
 import { bookmarkActions } from "../../../../store/bookmarkSlice";
 import { buySliceActions } from "../../../../store/buyBook";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export default function ReleaseCard({ card }) {
   const dispatch = useDispatch();
   const [modal, setModal] = useState(false);
+  const notify = () =>
+    toast.success("Thank you. Book is available in Bookshelf section");
   const handleModal = () => {
     setModal(!modal);
   };
@@ -49,6 +52,7 @@ export default function ReleaseCard({ card }) {
         description: card.volumeInfo.description,
       })
     );
+    notify();
   };
   return (
     <>
@@ -99,8 +103,13 @@ export default function ReleaseCard({ card }) {
                   >
                     Preview
                   </a>
-                  <p onClick={bookmarkHandler}>Add to bookmarks</p>
-                  <p onClick={buyHandler}>Buy</p>
+                  <button type="button" onClick={bookmarkHandler}>
+                    Add to bookmarks
+                  </button>
+                  <button type="button" onClick={buyHandler}>
+                    Buy
+                  </button>
+                  <ToastContainer autoClose={3000} />
                 </div>
                 <div>Language : {card.volumeInfo?.language.toUpperCase()}</div>
                 <p>Pages : {card.volumeInfo?.pageCount}</p>

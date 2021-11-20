@@ -3,15 +3,40 @@ import styles from "./card.module.scss";
 import Modal from "../../../modal/Modal";
 import { useDispatch } from "react-redux";
 import { bookmarkActions } from "../../../../store/bookmarkSlice";
+import { buySliceActions } from "../../../../store/buyBook";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 export default function FindCard({ card }) {
   const [modal, setModal] = useState(false);
   const dispatch = useDispatch();
+  const notify = () =>
+    toast.success("Thank you. Book is available in Bookshelf section");
   const handleModal = () => {
     setModal(!modal);
   };
   const addHandler = () => {
     dispatch(
       bookmarkActions.addBook({
+        id: card.id,
+        author: card.volumeInfo.authors,
+        img: card.volumeInfo?.imageLinks?.smallThumbnail,
+        title: card.volumeInfo.title,
+        link: card.volumeInfo?.previewLink,
+        categories: card.volumeInfo?.categories,
+        infoLink: card.volumeInfo?.infoLink,
+        language: card.volumeInfo?.language,
+        pages: card.volumeInfo?.pageCount,
+        type: card.volumeInfo?.printType,
+        date: card.volumeInfo?.publishedDate,
+        price: card.saleInfo.listPrice?.amount,
+        description: card.volumeInfo.description,
+      })
+    );
+  };
+  const buyHandler = () => {
+    notify();
+    dispatch(
+      buySliceActions.buyBook({
         id: card.id,
         author: card.volumeInfo.authors,
         img: card.volumeInfo?.imageLinks?.smallThumbnail,
@@ -57,8 +82,13 @@ export default function FindCard({ card }) {
               >
                 Preview
               </a>
-              <p onClick={addHandler}>Add</p>
-              <p>Buy</p>
+              <button onClick={addHandler} type="button">
+                Add
+              </button>
+              <button type="button" onClick={buyHandler}>
+                Buy
+              </button>
+              <ToastContainer autoClose={3000} />
             </div>
             <p>Language: {card.volumeInfo?.language.toUpperCase()}</p>
             <p>Pages: {card.volumeInfo?.pageCount}</p>

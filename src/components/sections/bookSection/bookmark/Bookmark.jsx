@@ -27,6 +27,7 @@ export default function Bookmark({ book, home }) {
   };
 
   const buyHandler = () => {
+    notify();
     dispatch(
       buySliceActions.buyBook({
         id: book.id,
@@ -44,7 +45,9 @@ export default function Bookmark({ book, home }) {
         description: book.description,
       })
     );
-    notify();
+    setTimeout(() => {
+      setModal(!modal);
+    }, 3500);
   };
   return (
     <>
@@ -75,9 +78,13 @@ export default function Bookmark({ book, home }) {
                   <a href={book?.link} alt="" target="_blank" rel="noreferrer">
                     Preview
                   </a>
-                  <p onClick={bookmarkHandler}>Remove</p>
+                  <button onClick={bookmarkHandler} type="button">
+                    Remove
+                  </button>
 
-                  <p onClick={buyHandler}>Buy</p>
+                  <button onClick={buyHandler} type="button">
+                    Buy
+                  </button>
                 </div>
                 <div>Language : {book?.language.toUpperCase()}</div>
                 <p>Pages : {book?.pages}</p>
@@ -93,7 +100,7 @@ export default function Bookmark({ book, home }) {
             </div>
             <div className={styles.description}>{book.description}</div>
           </div>
-          <ToastContainer autoClose={5000} />
+          <ToastContainer autoClose={3000} />
         </Modal>
       )}
     </>
