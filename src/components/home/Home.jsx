@@ -44,22 +44,21 @@ export default function Home({ theme }) {
             <FriendList friend={friend} key={friend.id} />
           ))}
         </div>
-        <img src="images/pencil.svg" alt="" className={styles.pencil} />
+        {/* <img src="images/pencil.svg" alt="" className={styles.pencil} /> */}
 
-        <div className={styles.book}>
+        {/* <div className={styles.book}>
           <Bookmarks home="home" />
-        </div>
-        <div className={styles.news}>
-          <h4>News </h4>
+        </div> */}
+        {/* <div className={styles.news}>
           <News />
-        </div>
-        <div className={styles.misc}>
+        </div> */}
+        {/* <div className={styles.misc}>
           <div className={styles.misc1}>From the Creator </div>
           <Creator title="Book Suggestion" />
-          {/* <Creator title="Shop" /> */}
+
           <Creator title="Music" />
           <Creator title="Quotes" />
-        </div>
+        </div> */}
       </div>
     </div>
   );

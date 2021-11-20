@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./article.module.scss";
 import Modal from "../../modal/Modal";
 
-export default function Article({ article }) {
+export default function Article({ article, home }) {
   const [modal, setModal] = useState(false);
   const handleModal = () => {
     setModal(!modal);
@@ -16,7 +16,7 @@ export default function Article({ article }) {
         </div>
       </div>
       {modal && (
-        <Modal handleModal={handleModal}>
+        <Modal handleModal={handleModal} home={home}>
           <div className={styles.article1}>
             <h1>{article.headline.main}</h1>
             <span>{article.byline?.original}</span>

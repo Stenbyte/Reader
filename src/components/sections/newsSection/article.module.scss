@@ -3,6 +3,7 @@
 .cards {
   padding: 0.5rem;
   width: 32vw;
+
   .article {
     height: 18vh;
     border-radius: 3px;
@@ -26,7 +27,7 @@
 .article1 {
   position: absolute;
   top: 10vh;
-  left: 20vw;
+  left: 15vw;
   width: 70vw;
   background-color: $fourth;
   overflow: auto;
