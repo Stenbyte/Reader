@@ -1,20 +1,16 @@
 import React from "react";
 import styles from "./home.module.scss";
 import Reader from "../reader/Reader";
-// import Book from "../book/Book";
-import Creator from "../creator/Creator";
+
 import Profile from "../profile/Profile";
-import News from "../news/News";
-// import { Readers } from "../data";
+
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import FriendList from "../friendList/FriendList";
-import Bookmarks from "../sections/bookSection/bookmark/Bookmarks";
 
 export default function Home({ theme }) {
   const Readers = useSelector((state) => state.friend.list);
   const friends = useSelector((state) => state.friend.friend);
-  console.log(friends);
 
   return (
     <div
@@ -44,7 +40,7 @@ export default function Home({ theme }) {
             <FriendList friend={friend} key={friend.id} />
           ))}
         </div>
-        {/* <img src="images/pencil.svg" alt="" className={styles.pencil} /> */}
+        <img src="images/pencil.svg" alt="" className={styles.pencil} />
 
         {/* <div className={styles.book}>
           <Bookmarks home="home" />
