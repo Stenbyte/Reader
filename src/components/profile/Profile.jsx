@@ -12,26 +12,30 @@ export default function Profile() {
           <Link to="/profile">
             <h4>Sten Scheifel</h4>
           </Link>
-          <p>Rank</p>
         </div>
-        <div className={styles.userRight}>
+        {/* <div className={styles.userRight}>
           <span>"We don't see things as they are, we see them as we are."</span>
           <p>Anais Nin</p>
-        </div>
+        </div> */}
       </div>
       <div className={styles.userMiddle}>
         <div className={styles.middleContainer}>
-          <h4>Reading Time</h4>
+          <p>
+            Welcome to Reader App. This project is built with help of React,
+            Firebase, Redux Toolkit, Google API, New York Times API, Merriam
+            Webster API. The original idea, planning, and implementation are
+            made by me. Please enjoy:)
+          </p>
         </div>
       </div>
-      <div className={styles.userBottom}>
+      {/* <div className={styles.userBottom}>
         <div className={styles.bottomContainer}>
           <h4>Notes</h4>
         </div>
         <div className={styles.bottomContainer}>
           <h4>Continue Reading</h4>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
