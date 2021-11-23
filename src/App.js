@@ -9,15 +9,19 @@ import NewsSec from "./components/sections/newsSection/NewsSec";
 import Bookshelf from "./components/sections/shelfSection/Bookshelf";
 import Friends from "./components/sections/friendsSection/Friends";
 import Friend from "./components/sections/friendsSection/Friend";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchData } from "./store/friendSlice";
 
 let isInitial = true;
 
 function App() {
+  const dispatch = useDispatch();
   const [theme, setTheme] = useState("");
 
   const friend = useSelector((state) => state.friend);
-  // console.log(friend);
+  useEffect(() => {
+    dispatch(fetchData());
+  }, [dispatch]);
   useEffect(() => {
     const sendFriendData = async () => {
       const response = await fetch(

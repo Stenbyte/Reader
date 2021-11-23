@@ -4,6 +4,8 @@ import { Readers } from "../components/data";
 const initialState = {
   friend: [],
   list: Readers,
+  boughtBooks: [],
+  bookmarks: [],
 };
 const friendSlice = createSlice({
   name: "friend",
@@ -12,6 +14,8 @@ const friendSlice = createSlice({
     replaceState(state, action) {
       state.friend = action.payload.friend;
       state.list = action.payload.list;
+      state.boughtBooks = action.payload.boughtBooks;
+      state.bookmarks = action.payload.bookmarks;
     },
     connectFriend(state, action) {
       const newFriend = action.payload;
@@ -48,8 +52,83 @@ const friendSlice = createSlice({
         // con: action.payload.con,
       });
     },
+    // Book section
+    addBook(state, action) {
+      const newBook = action.payload;
+      const statusBook = state.bookmarks.find((book) => book.id === newBook.id);
+      if (!statusBook) {
+        state.bookmarks.push({
+          id: action.payload.id,
+          author: action.payload.author,
+          img: action.payload.img,
+          title: action.payload.title,
+          link: action.payload.link,
+          categories: action.payload.categories,
+          infoLink: action.payload.infoLink,
+          language: action.payload.language,
+          pages: action.payload.pages,
+          type: action.payload.type,
+          date: action.payload.date,
+          price: action.payload.price,
+          description: action.payload.description,
+        });
+      }
+    },
+    buyBook(state, action) {
+      const newBook = action.payload;
+      const existingBook = state.boughtBooks.find(
+        (book) => book.id === newBook.id
+      );
+      if (!existingBook) {
+        state.boughtBooks.push({
+          id: action.payload.id,
+          author: action.payload.author,
+          img: action.payload.img,
+          title: action.payload.title,
+          link: action.payload.link,
+          categories: action.payload.categories,
+          infoLink: action.payload.infoLink,
+          language: action.payload.language,
+          pages: action.payload.pages,
+          type: action.payload.type,
+          date: action.payload.date,
+          price: action.payload.price,
+          description: action.payload.description,
+        });
+      }
+    },
+    remove(state, action) {
+      const newbook = action.payload;
+      state.bookmarks = state.bookmarks.filter(
+        (book) => book.id !== newbook.id
+      );
+    },
   },
 });
+
+export const fetchData = () => {
+  return async (dispatch) => {
+    const fetchD = async () => {
+      const response = await fetch(
+        "https://readerapp-85586-default-rtdb.europe-west1.firebasedatabase.app/friend.json"
+      );
+
+      if (!response.ok) {
+        throw new Error("Ooops");
+      }
+      const data = await response.json();
+
+      return data;
+    };
+    try {
+      const friendData = await fetchD();
+
+      dispatch(friendActions.replaceState(friendData));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
 
 export const friendActions = friendSlice.actions;
 export default friendSlice;

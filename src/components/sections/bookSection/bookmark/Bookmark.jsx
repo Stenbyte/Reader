@@ -3,9 +3,9 @@ import styles from "./bookmark.module.scss";
 // import { useSelector } from "react-redux";
 import bookImg from "../../../../img/book.png";
 import Modal from "../../../modal/Modal";
-import { bookmarkActions } from "../../../../store/bookmarkSlice";
+
 import { useDispatch } from "react-redux";
-import { buySliceActions } from "../../../../store/buyBook";
+import { friendActions } from "../../../../store/friendSlice";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 export default function Bookmark({ book, home }) {
@@ -17,7 +17,7 @@ export default function Bookmark({ book, home }) {
 
   const bookmarkHandler = () => {
     dispatch(
-      bookmarkActions.remove({
+      friendActions.remove({
         id: book.id,
       })
     );
@@ -29,7 +29,7 @@ export default function Bookmark({ book, home }) {
   const buyHandler = () => {
     notify();
     dispatch(
-      buySliceActions.buyBook({
+      friendActions.buyBook({
         id: book.id,
         author: book.author,
         img: book.img,

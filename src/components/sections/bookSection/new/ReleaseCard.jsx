@@ -3,8 +3,8 @@ import styles from "./Rel.module.scss";
 import book from "../../../../img/book.png";
 import Modal from "../../../modal/Modal";
 import { useDispatch } from "react-redux";
-import { bookmarkActions } from "../../../../store/bookmarkSlice";
-import { buySliceActions } from "../../../../store/buyBook";
+
+import { friendActions } from "../../../../store/friendSlice";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 export default function ReleaseCard({ card }) {
@@ -17,7 +17,7 @@ export default function ReleaseCard({ card }) {
   };
   const bookmarkHandler = () => {
     dispatch(
-      bookmarkActions.addBook({
+      friendActions.addBook({
         id: card.id,
         author: card.volumeInfo.authors,
         img: card.volumeInfo?.imageLinks?.smallThumbnail,
@@ -36,7 +36,7 @@ export default function ReleaseCard({ card }) {
   };
   const buyHandler = () => {
     dispatch(
-      buySliceActions.buyBook({
+      friendActions.buyBook({
         id: card.id,
         author: card.volumeInfo.authors,
         img: card.volumeInfo?.imageLinks?.smallThumbnail,

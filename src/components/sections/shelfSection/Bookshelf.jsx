@@ -21,7 +21,7 @@ let musicList = [
 ];
 
 export default function MisSec({ theme }) {
-  const BoughtBooks = useSelector((state) => state.buyBook.boughtBooks);
+  const BoughtBooks = useSelector((state) => state.friend.boughtBooks);
   // console.log(BoughtBooks);
   let API = process.env.REACT_APP_API_KEY;
 

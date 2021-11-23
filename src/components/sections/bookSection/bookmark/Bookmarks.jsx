@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 import Bookmark from "./Bookmark.jsx";
 export default function Bookmarks({ home }) {
-  const bookmarks = useSelector((state) => state.bookmark.bookmarks);
+  const bookmarks = useSelector((state) => state.friend.bookmarks);
   return (
     <div className={styles.bookmark}>
       <h4 className={styles.title}>Bookmarks</h4>
