@@ -9,6 +9,10 @@ const friendSlice = createSlice({
   name: "friend",
   initialState,
   reducers: {
+    replaceState(state, action) {
+      state.friend = action.payload.friend;
+      state.list = action.payload.list;
+    },
     connectFriend(state, action) {
       const newFriend = action.payload;
       const status = state.friend.find(

@@ -9,9 +9,35 @@ import NewsSec from "./components/sections/newsSection/NewsSec";
 import Bookshelf from "./components/sections/shelfSection/Bookshelf";
 import Friends from "./components/sections/friendsSection/Friends";
 import Friend from "./components/sections/friendsSection/Friend";
+import { useSelector } from "react-redux";
+
+let isInitial = true;
 
 function App() {
   const [theme, setTheme] = useState("");
+
+  const friend = useSelector((state) => state.friend);
+  // console.log(friend);
+  useEffect(() => {
+    const sendFriendData = async () => {
+      const response = await fetch(
+        "https://readerapp-85586-default-rtdb.europe-west1.firebasedatabase.app/friend.json",
+        {
+          method: "PUT",
+          body: JSON.stringify(friend),
+        }
+      );
+      if (!response.ok) {
+        throw new Error("Ooops");
+      }
+      // const responseData = await response.json();
+    };
+    if (isInitial) {
+      isInitial = false;
+      return;
+    }
+    sendFriendData().catch((err) => console.log(err));
+  }, [friend]);
 
   useEffect(() => {
     const current = sessionStorage.getItem("theme");
