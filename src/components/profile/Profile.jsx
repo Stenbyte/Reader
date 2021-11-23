@@ -23,8 +23,8 @@ export default function Profile() {
           <p>
             Welcome to Reader App. This project is built with help of React,
             Firebase, Redux Toolkit, Google API, New York Times API, Merriam
-            Webster API. The original idea, planning, and implementation are
-            made by me. Please enjoy:)
+            Webster API. The web app idea, planning, and implementation are made
+            by me. Please enjoy:)
           </p>
         </div>
       </div>
