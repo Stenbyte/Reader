@@ -2,11 +2,24 @@ import React from "react";
 import "./header.scss";
 import { NavLink, Outlet } from "react-router-dom";
 
+import { useDispatch } from "react-redux";
+import { userActions } from "../../store/userSlice";
+
 export default function Header({ handleTheme1, theme1 }) {
   const handleTheme = (theme) => {
     handleTheme1(theme);
   };
+  const dispatch = useDispatch();
 
+  const logHandler = () => {
+    sessionStorage.removeItem("load");
+    sessionStorage.removeItem("pro");
+    dispatch(
+      userActions.loadUser({
+        load: true,
+      })
+    );
+  };
   return (
     <>
       <div className={`header ${theme1 === "green" ? "head2" : ""}`}>
@@ -29,6 +42,9 @@ export default function Header({ handleTheme1, theme1 }) {
           <NavLink to="/bookshelf">
             <div className={`headerBtn ${theme1 && "btn2"}`}>BOOKSHELF</div>
           </NavLink>
+          <div className={`headerBtn ${theme1 && "btn2"}`} onClick={logHandler}>
+            LOGOUT
+          </div>
         </div>
         <div className={`headerBtn`}>
           <p id="" onClick={() => handleTheme("")}>

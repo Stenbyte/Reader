@@ -1,16 +1,20 @@
 import React from "react";
 import styles from "./profile.module.scss";
-import logo from "../../img/st.png";
+
+import empty from "../../img/empty.png";
 import { Link } from "react-router-dom";
 
 export default function Profile() {
+  let data = sessionStorage.getItem("pro");
+  let user = JSON.parse(data);
+
   return (
     <div className={styles.container}>
       <div className={styles.userTop}>
         <div className={styles.userLeft}>
-          <img src={logo} alt="" />
+          <img src={user ? user?.img : empty} alt="" />
           <Link to="/profile">
-            <h4>Sten Scheifel</h4>
+            <h4>{user?.user}</h4>
           </Link>
         </div>
         {/* <div className={styles.userRight}>

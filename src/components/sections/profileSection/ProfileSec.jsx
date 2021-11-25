@@ -1,8 +1,10 @@
 import React from "react";
 import styles from "./profileSec.module.scss";
-import St from "../../../img/st.png";
+import proimg from "../../../img/empty.png";
 
 export default function ProfileSec({ theme }) {
+  let data = sessionStorage.getItem("pro");
+  let user = JSON.parse(data);
   return (
     <div
       className={`${styles.container} ${theme === "" ? "" : `${styles.hom1}`}`}
@@ -14,10 +16,12 @@ export default function ProfileSec({ theme }) {
             alt=""
             className={styles.backImg}
           />
-          <img src={St} alt="" className={styles.front} />
-          <h4>Sten</h4>
-          <p className={styles.rank}>Rank:</p>
-          <p>City: Helsinki</p>
+          <img
+            src={user.img ? user.img : proimg}
+            alt=""
+            className={styles.front}
+          />
+          <h4>{user.user}</h4>
         </div>
         <div className={styles.cardBottom}>
           <h4>Likes to read</h4>

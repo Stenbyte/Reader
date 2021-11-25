@@ -1,0 +1,40 @@
+@import "../../global.scss";
+.card {
+  width: 100vw;
+  height: 100vh;
+  background-color: $main;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  form {
+    background-color: $third;
+    width: 20rem;
+    min-height: 15rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 3px;
+    .us {
+      padding: 0.5rem;
+      border: hidden;
+      border-radius: 3px;
+    }
+    input {
+      color: $main;
+    }
+    img {
+      width: 2rem;
+      height: 2rem;
+    }
+    button {
+      padding: 0.5rem;
+      background-color: white;
+      border: none;
+      border-radius: 3px;
+      color: $main;
+    }
+  }
+}
