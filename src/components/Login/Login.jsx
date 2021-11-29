@@ -7,6 +7,8 @@ import empty from "../../img/empty.png";
 export default function Login() {
   const dispatch = useDispatch();
 
+  const [error, setError] = useState(false);
+
   const [proimg, setProimg] = useState({
     user: "",
     img: "",
@@ -16,6 +18,9 @@ export default function Login() {
       user: e.target.value,
       img: prevState.img,
     }));
+    if (e.target.value) {
+      setError(false);
+    }
   };
   const imageHandler1 = (e) => {
     setProimg((prevState) => ({
@@ -26,19 +31,26 @@ export default function Login() {
 
   const validImg = (e) => {
     e.preventDefault();
-    sessionStorage.setItem("pro", JSON.stringify(proimg));
-    sessionStorage.setItem("load", false);
-    dispatch(
-      userActions.loadUser({
-        load: false,
-      })
-    );
+
+    if (proimg.user === "") {
+      setError(true);
+    } else {
+      sessionStorage.setItem("pro", JSON.stringify(proimg));
+      sessionStorage.setItem("load", false);
+      dispatch(
+        userActions.loadUser({
+          load: false,
+        })
+      );
+    }
   };
 
   return (
     <div className={styles.card}>
       <form onSubmit={validImg}>
         <h2>Login</h2>
+        <label htmlFor="user">Name*</label>
+        {error && <p>Please enter name</p>}
         <input
           type="text"
           name="user"
@@ -47,6 +59,7 @@ export default function Login() {
           onChange={imageHandler}
           className={styles.us}
         />
+        <label htmlFor="image">Profile picture</label>
         <input
           type="file"
           name="image"
@@ -56,9 +69,14 @@ export default function Login() {
         <img
           src={proimg.img === "" ? empty : proimg?.img}
           alt=""
-          style={{ width: "30px", height: "40px" }}
+          style={{ width: "30px", height: "30px" }}
         />
-        <button type="submit">SUBMIT</button>
+        <button
+          type="submit"
+          // disabled={nameref.current?.value === "" ? true : false}
+        >
+          SUBMIT
+        </button>
       </form>
     </div>
   );
